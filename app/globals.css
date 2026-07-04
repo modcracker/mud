@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-display: var(--font-display), system-ui, sans-serif;
+  --font-mono: var(--font-mono), monospace;
+}
+
+/* Custom scrollbar and ambient animation utilities */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 26, 0.15);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 26, 0.3);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Evercove Brand Logo subtle pulse animation on hover */
+@keyframes evercovePulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 2px 4px rgba(16, 185, 129, 0.05));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 6px 16px rgba(16, 185, 129, 0.18));
+  }
+}
+
+@keyframes coveWavePulse {
+  0%, 100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+#evercove-brand-logo-svg {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+#evercove-brand-logo-svg:hover {
+  animation: evercovePulse 1.8s infinite ease-in-out;
+}
+
+#evercove-brand-logo-svg:hover .cove-wave {
+  animation: coveWavePulse 1.8s infinite ease-in-out;
+  transform-origin: 22px 24px;
+}
+
