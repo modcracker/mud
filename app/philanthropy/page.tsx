@@ -1,11 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowLeft, ExternalLink, Heart, Globe, Award, Leaf, Droplets } from "lucide-react";
+import { ArrowLeft, ExternalLink, Heart, Globe, Award, Leaf, Droplets, Home } from "lucide-react";
 import { generatePageMetadata, getBaseUrl } from "@/lib/metadata";
+import { CategoryIllustration } from "@/components/category-illustration";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Philanthropy & Social Giving Pledge",
-  description: "Learn about the mud.cc philanthropy pledge. We are dedicated to pledging 10% of our ultimate registry acquisition to digital health initiatives, water filtration projects, and wetlands conservation.",
+  title: "Philanthropy & Conservation Initiatives",
+  description: "Learn about the mud.cc environmental preservation commitment. We support pioneering digital health projects, high-yield soil preservation, and wetlands conservation programs globally.",
   path: "/philanthropy",
   keywords: [
     "mud.cc philanthropy",
@@ -28,8 +29,8 @@ export default function PhilanthropyPage() {
         "@type": "WebPage",
         "@id": `${baseUrl}/philanthropy/#webpage`,
         "url": `${baseUrl}/philanthropy`,
-        "name": "Philanthropy Pledge — mud.cc",
-        "description": "Learn about our commitment to donating 10% of domain acquisition revenues to digital health, wetlands, and clean water filtration.",
+        "name": "Philanthropy & Conservation Initiatives — mud.cc",
+        "description": "Learn about our commitment to supporting digital health, wetlands, and clean water filtration programs globally.",
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -92,7 +93,7 @@ export default function PhilanthropyPage() {
             Causes We Care About
           </h1>
           <p className="text-lg md:text-xl text-stone-600 leading-relaxed max-w-2xl font-sans">
-            As custodians of the mud.cc domain registry, we believe in supporting pioneering platforms, sustainable ecology, and technical networks that elevate human potential and preserve vital resources.
+            As custodians of the mud.cc research archive, we believe in supporting pioneering platforms, sustainable ecology, and technical networks that elevate human potential and preserve vital resources.
           </p>
         </div>
 
@@ -240,27 +241,80 @@ export default function PhilanthropyPage() {
             Other Initiatives We Support
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Wetlands / Soil conservation */}
-            <div className="bg-white border border-stone-200 rounded-2xl p-6 space-y-4 shadow-sm hover:shadow-md transition-shadow">
-              <span className="inline-flex p-3 bg-teal-50 rounded-xl text-teal-600 border border-teal-100">
-                <Leaf size={18} />
-              </span>
-              <h3 className="font-bold text-stone-900 font-display">Soil & Wetlands Conservation</h3>
-              <p className="text-xs text-stone-600 leading-relaxed font-sans">
-                Supporting wetland restoration programs worldwide. Healthy mud, peat bogs, and coastal estuaries act as powerful natural carbon sinks, making their preservation crucial for planet biodiversity.
-              </p>
+            <div className="bg-white border border-stone-200 rounded-3xl p-6 space-y-4 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+              <div className="space-y-4">
+                <span className="inline-flex p-3 bg-teal-50 rounded-xl text-teal-600 border border-teal-100">
+                  <Leaf size={18} />
+                </span>
+                <h3 className="font-bold text-stone-900 font-display text-lg">Soil & Wetlands Conservation</h3>
+                <p className="text-xs text-stone-600 leading-relaxed font-sans">
+                  Supporting wetland restoration programs worldwide. Healthy mud, peat bogs, and coastal estuaries act as powerful natural carbon sinks, making their preservation crucial for planet biodiversity.
+                </p>
+              </div>
+              <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-stone-100 shadow-inner mt-4 bg-teal-50/20 p-2">
+                <CategoryIllustration
+                  slug="mud-season"
+                  theme={{
+                    primary: "teal",
+                    bg: "bg-teal-50/60",
+                    text: "text-teal-900",
+                    border: "border-teal-200",
+                    accent: "text-teal-700"
+                  }}
+                />
+              </div>
             </div>
 
             {/* Clean Water / Filtration */}
-            <div className="bg-white border border-stone-200 rounded-2xl p-6 space-y-4 shadow-sm hover:shadow-md transition-shadow">
-              <span className="inline-flex p-3 bg-sky-50 rounded-xl text-sky-600 border border-sky-100">
-                <Droplets size={18} />
-              </span>
-              <h3 className="font-bold text-stone-900 font-display">Clean Water Filtration & Sand Wells</h3>
-              <p className="text-xs text-stone-600 leading-relaxed font-sans">
-                Backing clean water filtration initiatives in water-scarce zones. Helping construct deep sand-filter wells that filter muddy river runoffs into crystal-clear drinking water for villages.
-              </p>
+            <div className="bg-white border border-stone-200 rounded-3xl p-6 space-y-4 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+              <div className="space-y-4">
+                <span className="inline-flex p-3 bg-sky-50 rounded-xl text-sky-600 border border-sky-100">
+                  <Droplets size={18} />
+                </span>
+                <h3 className="font-bold text-stone-900 font-display text-lg">Clean Water Filtration & Sand Wells</h3>
+                <p className="text-xs text-stone-600 leading-relaxed font-sans">
+                  Backing clean water filtration initiatives in water-scarce zones. Helping construct deep sand-filter wells that filter muddy river runoffs into crystal-clear drinking water for villages.
+                </p>
+              </div>
+              <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-stone-100 shadow-inner mt-4 bg-cyan-50/20 p-2">
+                <CategoryIllustration
+                  slug="dead-sea-mud"
+                  theme={{
+                    primary: "cyan",
+                    bg: "bg-cyan-50/60",
+                    text: "text-cyan-900",
+                    border: "border-cyan-200",
+                    accent: "text-cyan-700"
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Adobe & Cob Restoration */}
+            <div className="bg-white border border-stone-200 rounded-3xl p-6 space-y-4 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+              <div className="space-y-4">
+                <span className="inline-flex p-3 bg-amber-50 rounded-xl text-amber-600 border border-amber-100">
+                  <Home size={18} />
+                </span>
+                <h3 className="font-bold text-stone-900 font-display text-lg">Adobe &amp; Cob Preservation</h3>
+                <p className="text-xs text-stone-600 leading-relaxed font-sans">
+                  Funding educational programs for traditional rammed-earth, sun-baked adobe, and cob construction. Championing low-carbon vernacular architecture to lower energy footprints globally.
+                </p>
+              </div>
+              <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-stone-100 shadow-inner mt-4 bg-amber-50/20 p-2">
+                <CategoryIllustration
+                  slug="mud-architecture"
+                  theme={{
+                    primary: "amber",
+                    bg: "bg-amber-50/60",
+                    text: "text-stone-900",
+                    border: "border-amber-200",
+                    accent: "text-amber-700"
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>

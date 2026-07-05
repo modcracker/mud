@@ -10,6 +10,7 @@ import { GODADDY_URL } from "@/lib/config";
 import { generatePageMetadata, getBaseUrl } from "@/lib/metadata";
 import { getPremiumMudImage } from "@/lib/images";
 import SidebarInterlinks from "@/components/sidebar-interlinks";
+import { CategoryIllustration } from "@/components/category-illustration";
 
 interface SubpageProps {
   params: Promise<{ category: string; subpage: string }>;
@@ -268,6 +269,9 @@ export default async function SubpageEntry({ params }: SubpageProps) {
                   {sub.description}
                 </p>
               </div>
+              <div className="relative w-full aspect-[21/9] rounded-xl overflow-hidden border border-stone-100 shadow-inner bg-stone-50/10 p-1 mt-2">
+                <CategoryIllustration slug={category.slug} theme={theme} />
+              </div>
               <span className="text-[11px] font-bold text-stone-500 group-hover:text-amber-600 inline-flex items-center gap-1">
                 Enter Publication <span className="transform group-hover:translate-x-1 transition-transform">→</span>
               </span>
@@ -275,28 +279,35 @@ export default async function SubpageEntry({ params }: SubpageProps) {
           ))}
 
           {/* Related categories subpages */}
-          {relatedSubpages.map((item) => (
-            <Link
-              key={item.subpage.slug}
-              href={`/mud/${item.categorySlug}/${item.subpage.slug}`}
-              className="group p-6 rounded-2xl bg-white border border-stone-200/80 hover:border-amber-500/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-4"
-            >
-              <div className="space-y-2">
-                <span className="text-[9px] font-mono font-semibold uppercase text-amber-700 bg-amber-50/50 px-2 py-0.5 rounded border border-amber-100/50">
-                  {item.categoryTitle} • {item.subpage.layout === "magazine" ? "Editorial" : item.subpage.layout === "timeline" ? "Chronicle" : "Treatise"}
+          {relatedSubpages.map((item) => {
+            const relCat = CATEGORIES.find((c) => c.slug === item.categorySlug);
+            const relTheme = relCat?.theme || theme;
+            return (
+              <Link
+                key={item.subpage.slug}
+                href={`/mud/${item.categorySlug}/${item.subpage.slug}`}
+                className="group p-6 rounded-2xl bg-white border border-stone-200/80 hover:border-amber-500/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-4"
+              >
+                <div className="space-y-2">
+                  <span className="text-[9px] font-mono font-semibold uppercase text-amber-700 bg-amber-50/50 px-2 py-0.5 rounded border border-amber-100/50">
+                    {item.categoryTitle} • {item.subpage.layout === "magazine" ? "Editorial" : item.subpage.layout === "timeline" ? "Chronicle" : "Treatise"}
+                  </span>
+                  <h4 className="font-bold text-stone-900 group-hover:text-amber-600 transition-colors text-base leading-tight">
+                    {item.subpage.title}
+                  </h4>
+                  <p className="text-stone-600 text-xs leading-relaxed line-clamp-2">
+                    {item.subpage.description}
+                  </p>
+                </div>
+                <div className="relative w-full aspect-[21/9] rounded-xl overflow-hidden border border-stone-100 shadow-inner bg-stone-50/10 p-1 mt-2">
+                  <CategoryIllustration slug={item.categorySlug} theme={relTheme} />
+                </div>
+                <span className="text-[11px] font-bold text-stone-500 group-hover:text-amber-600 inline-flex items-center gap-1">
+                  Cross-Reference Treatises <span className="transform group-hover:translate-x-1 transition-transform">→</span>
                 </span>
-                <h4 className="font-bold text-stone-900 group-hover:text-amber-600 transition-colors text-base leading-tight">
-                  {item.subpage.title}
-                </h4>
-                <p className="text-stone-600 text-xs leading-relaxed line-clamp-2">
-                  {item.subpage.description}
-                </p>
-              </div>
-              <span className="text-[11px] font-bold text-stone-500 group-hover:text-amber-600 inline-flex items-center gap-1">
-                Cross-Reference Treatises <span className="transform group-hover:translate-x-1 transition-transform">→</span>
-              </span>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </section>
 
@@ -309,7 +320,7 @@ export default async function SubpageEntry({ params }: SubpageProps) {
               <Award size={10} /> Silt &amp; Soil Stewardship Alliance
             </span>
             <h3 className="text-2xl md:text-3xl font-bold font-display text-white tracking-tight">
-              Sustaining the Earth's Sediment Heritage
+              Sustaining the Earth&apos;s Sediment Heritage
             </h3>
             <p className="text-sm text-zinc-400 leading-relaxed max-w-2xl">
               The <strong>mud.cc</strong> library is curated in affiliation with the International Earthen Research Network. We are committed to documenting the geological complexity, historical structures, and biological importance of fine silt and alluvial clay resources worldwide.
@@ -413,6 +424,22 @@ function MagazineLayout({
                 <p>{sec.text}</p>
               </div>
             ))}
+
+            {/* In-article Schema Division */}
+            <div className="my-12 p-6 md:p-8 rounded-3xl bg-amber-50/40 border border-amber-200/50 space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <div className="md:col-span-4 aspect-[4/3] w-full rounded-2xl overflow-hidden border border-stone-200/60 shadow-inner bg-white p-2">
+                  <CategoryIllustration slug={category.slug} theme={theme} />
+                </div>
+                <div className="md:col-span-8 space-y-2">
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-amber-700">SCHEMA REFERENCE</span>
+                  <h4 className="text-base font-bold font-display text-stone-900">{category.title} Diagnostic Model</h4>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    This vector schematic represents the foundational structural components of {category.title}. It serves as a visual index for geological, botanical, and cybernetic studies documented in the mud.cc Registry.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -440,6 +467,19 @@ function MagazineLayout({
                   <span className="font-mono text-stone-800 font-medium">{category.slug}.mud.cc</span>
                 </div>
               </div>
+            </div>
+
+            {/* Visual Blueprint Schema Card */}
+            <div className="bg-white border border-stone-200 rounded-3xl p-6 shadow-sm space-y-4">
+              <span className="text-[10px] font-mono font-bold text-amber-600 uppercase tracking-widest block">
+                SYSTEM SCHEMA
+              </span>
+              <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-stone-100 shadow-inner">
+                <CategoryIllustration slug={category.slug} theme={theme} />
+              </div>
+              <p className="text-[11px] text-stone-500 leading-relaxed">
+                Peer-reviewed conceptual schema representing the core dynamics of {category.title}.
+              </p>
             </div>
 
             {/* Automated Interlinking Graph */}
@@ -499,6 +539,22 @@ function TimelineLayout({
             </div>
           )}
 
+          {/* Timeline in-article Illustration */}
+          <div className="my-10 p-6 md:p-8 rounded-3xl bg-amber-50/40 border border-amber-200/50 space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <div className="md:col-span-4 aspect-[4/3] w-full rounded-2xl overflow-hidden border border-stone-200/60 shadow-inner bg-white p-2">
+                <CategoryIllustration slug={category.slug} theme={theme} />
+              </div>
+              <div className="md:col-span-8 space-y-2">
+                <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-amber-700">CHRONOLOGICAL MODEL</span>
+                <h4 className="text-base font-bold font-display text-stone-900">{category.title} Historical Blueprint</h4>
+                <p className="text-xs text-stone-600 leading-relaxed font-sans">
+                  The temporal evolution and crystallization of {category.title} structural milestones, indexed dynamically under the mud.cc Registry standards.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Timeline core tree */}
           <div className="relative border-l-2 border-stone-200 pl-6 sm:pl-10 space-y-12 py-4">
             {subpage.timeline?.map((item: any, idx: number) => (
@@ -551,6 +607,19 @@ function TimelineLayout({
               </div>
             </div>
 
+            {/* Visual Blueprint Schema Card */}
+            <div className="bg-white border border-stone-200 rounded-3xl p-6 shadow-sm space-y-4">
+              <span className="text-[10px] font-mono font-bold text-amber-600 uppercase tracking-widest block">
+                SYSTEM SCHEMA
+              </span>
+              <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-stone-100 shadow-inner">
+                <CategoryIllustration slug={category.slug} theme={theme} />
+              </div>
+              <p className="text-[11px] text-stone-500 leading-relaxed">
+                Peer-reviewed conceptual schema representing the core dynamics of {category.title}.
+              </p>
+            </div>
+
             {/* Automated Interlinking Graph */}
             <SidebarInterlinks
               currentCategorySlug={category.slug}
@@ -600,6 +669,24 @@ function MasonryLayout({
 
           {/* Masonry-Style Flex Grid */}
           <div className="columns-1 md:columns-2 gap-6 space-y-6">
+            {/* Custom Illustration Card in Masonry Grid */}
+            <div className="break-inside-avoid bg-amber-50/30 border border-amber-200/50 rounded-3xl p-6 shadow-sm space-y-4">
+              <div className="space-y-2">
+                <span className="text-[9px] font-mono font-bold text-amber-700 bg-amber-100 px-2.5 py-1 rounded uppercase tracking-wider">
+                  SYSTEM MODEL ARCHIVE
+                </span>
+                <h3 className="font-bold font-display text-stone-900 text-lg">
+                  {category.title} Concept Outline
+                </h3>
+              </div>
+              <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-stone-100 shadow-inner p-1">
+                <CategoryIllustration slug={category.slug} theme={theme} />
+              </div>
+              <p className="text-stone-600 text-xs leading-relaxed font-sans">
+                A formal conceptual diagram representing the spatial, physical, or technical parameters analyzed within this publication.
+              </p>
+            </div>
+
             {subpage.masonry?.map((card: any, idx: number) => {
               const isLarge = card.size === "large";
 
@@ -668,6 +755,19 @@ function MasonryLayout({
                   <span className="font-mono text-stone-800 font-medium">{category.slug}.mud.cc</span>
                 </div>
               </div>
+            </div>
+
+            {/* Visual Blueprint Schema Card */}
+            <div className="bg-white border border-stone-200 rounded-3xl p-6 shadow-sm space-y-4">
+              <span className="text-[10px] font-mono font-bold text-amber-600 uppercase tracking-widest block">
+                SYSTEM SCHEMA
+              </span>
+              <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-stone-100 shadow-inner">
+                <CategoryIllustration slug={category.slug} theme={theme} />
+              </div>
+              <p className="text-[11px] text-stone-500 leading-relaxed">
+                Peer-reviewed conceptual schema representing the core dynamics of {category.title}.
+              </p>
             </div>
 
             {/* Automated Interlinking Graph */}

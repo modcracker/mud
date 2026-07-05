@@ -73,10 +73,10 @@ export default function ContactForm() {
             <KeyRound size={26} className="animate-pulse" />
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-display tracking-tight text-stone-900">
-            Registry Contact
+            Research Inquiry Contact
           </h2>
           <p className="text-sm text-stone-500 leading-relaxed font-sans">
-            To protect our domain administrative registry from automated scrapers, please complete the quick human validation query below.
+            To protect our academic administrative team from automated web scrapers and spam, please complete the quick human validation query below.
           </p>
         </div>
 
@@ -158,7 +158,7 @@ export default function ContactForm() {
 
             <div className="space-y-3">
               <p className="text-sm text-stone-600 leading-relaxed font-sans">
-                Thank you for proving your humanity. You can copy the registry administrator email below, or use the direct mail helper.
+                Thank you for proving your humanity. You can copy our research administration email below, or use the direct mail helper.
               </p>
 
               <div className="space-y-2 mt-4">
@@ -185,7 +185,7 @@ export default function ContactForm() {
 
                 <div className="flex gap-2 pt-2">
                   <a
-                    href={`mailto:${rawMungedParts.user}@${rawMungedParts.domain}.${rawMungedParts.tld}?subject=Inquiry%20regarding%20mud.cc`}
+                    href={`mailto:${rawMungedParts.user}@${rawMungedParts.domain}.${rawMungedParts.tld}?subject=Research%20Inquiry%20-%20mud.cc`}
                     className="flex-grow inline-flex items-center justify-center gap-2 bg-stone-900 hover:bg-stone-800 text-stone-100 font-semibold px-5 py-3 rounded-xl text-xs transition-colors"
                   >
                     <Mail size={14} /> Send Direct Email
@@ -208,8 +208,8 @@ export default function ContactForm() {
 
         {/* Additional info footer */}
         <div className="pt-4 border-t border-stone-100 text-xs text-stone-400 space-y-1">
-          <p>Escrow and secure asset swaps are executed via leading administrative networks.</p>
-          <p>For instant domains purchasing options, please use the links provided in the banner.</p>
+          <p>Academic queries are typically answered within 2-3 business days.</p>
+          <p>Submissions of sedimentological data should include CSV or PDF files if possible.</p>
         </div>
       </div>
     </motion.div>

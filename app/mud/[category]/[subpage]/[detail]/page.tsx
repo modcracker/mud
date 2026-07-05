@@ -9,6 +9,7 @@ import { generatePageMetadata, getBaseUrl } from "@/lib/metadata";
 import { getPremiumMudImage } from "@/lib/images";
 import InteractiveSimulator from "@/components/interactive-simulator";
 import SidebarInterlinks from "@/components/sidebar-interlinks";
+import { CategoryIllustration } from "@/components/category-illustration";
 
 interface DetailPageProps {
   params: Promise<{ category: string; subpage: string; detail: string }>;
@@ -200,6 +201,22 @@ export default async function DetailEntryPage({ params }: DetailPageProps) {
             <InteractiveSimulator slug={page.slug} />
           </div>
 
+          {/* Diagnostic Blueprint Inline Section */}
+          <div className="my-10 p-6 md:p-8 rounded-3xl bg-amber-50/40 border border-amber-200/50 space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <div className="md:col-span-4 aspect-[4/3] w-full rounded-2xl overflow-hidden border border-stone-200/60 shadow-inner bg-white p-2">
+                <CategoryIllustration slug={category.slug} theme={theme} />
+              </div>
+              <div className="md:col-span-8 space-y-2">
+                <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-amber-700">DIAGNOSTIC MATRIX</span>
+                <h4 className="text-base font-bold font-display text-stone-900">{category.title} Structural Matrix</h4>
+                <p className="text-xs text-stone-600 leading-relaxed font-sans">
+                  High-fidelity schematic mapping the spatial parameters and crystallographic structures of <strong>{category.title}</strong>, curated for peer review.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Render Sections */}
           <div className="space-y-10">
             {page.sections.map((section, idx) => (
@@ -255,6 +272,20 @@ export default async function DetailEntryPage({ params }: DetailPageProps) {
             <div className="pt-2 text-[10px] text-zinc-600 font-mono leading-relaxed flex items-center gap-1.5 border-t border-zinc-900 mt-2">
               <ShieldCheck size={12} className="text-emerald-500 shrink-0" /> Certified by mud.cc Editorial Board
             </div>
+          </div>
+
+          {/* Visual Blueprint Schema Card */}
+          <div className="bg-white border border-stone-200 rounded-3xl p-6 shadow-md space-y-4">
+            <div className="space-y-1">
+              <span className="text-[9px] text-amber-600 font-mono font-bold uppercase tracking-widest block">SYSTEM SCHEMA</span>
+              <h3 className="text-base font-bold font-display text-stone-900">Reference Model</h3>
+            </div>
+            <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-stone-100 shadow-inner">
+              <CategoryIllustration slug={category.slug} theme={theme} />
+            </div>
+            <p className="text-xs text-stone-600 leading-relaxed">
+              Technical outline depicting the fundamental physical or theoretical matrix under investigation for <strong>{category.title}</strong>.
+            </p>
           </div>
 
           {/* Related Cross Links Box */}

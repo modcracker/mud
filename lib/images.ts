@@ -4,6 +4,8 @@
  * in place of random placeholder images.
  */
 
+import geochemicalArchiveHeader from "@/src/assets/images/geochemical_archive_header_1783237929421.jpg";
+
 // Mapping of categories to specific Unsplash image IDs
 export const CATEGORY_IMAGES: Record<string, {
   wide: string;
@@ -162,6 +164,11 @@ export function getPremiumMudImage(seed: string, format: "wide" | "tall" | "laye
   // Clean the seed key to find matching mapping
   const cleanSeed = seed.trim().toLowerCase().replace(/^https?:\/\/picsum\.photos\/seed\/([^\/]+)\/.*$/, "$1");
 
+  // 0. Check explicit geochemical-archive or general placeholder requests
+  if (cleanSeed === "geochemical-archive" || cleanSeed === "geochemical_archive_header" || cleanSeed === "placeholder" || cleanSeed === "default-placeholder") {
+    return geochemicalArchiveHeader.src;
+  }
+
   // 1. Check direct subpage images
   if (SUBPAGE_IMAGES[cleanSeed]) {
     return `https://images.unsplash.com/${SUBPAGE_IMAGES[cleanSeed]}?auto=format&fit=crop&w=${format === "magazine" ? "1200" : "800"}&q=80`;
@@ -185,7 +192,11 @@ export function getPremiumMudImage(seed: string, format: "wide" | "tall" | "laye
     }
   }
 
-  // 4. General fallback using the index hash of the seed to serve a gorgeous direct mud texture
+  // 4. General fallback using our premium geochemical archive header or the index hash of the seed
+  if (format === "wide" || format === "magazine") {
+    return geochemicalArchiveHeader.src;
+  }
+
   let hash = 0;
   for (let i = 0; i < cleanSeed.length; i++) {
     hash = cleanSeed.charCodeAt(i) + ((hash << 5) - hash);
@@ -193,5 +204,5 @@ export function getPremiumMudImage(seed: string, format: "wide" | "tall" | "laye
   const idx = Math.abs(hash) % DEFAULT_MUD_PHOTOS.length;
   const chosenFallback = DEFAULT_MUD_PHOTOS[idx];
 
-  return `https://images.unsplash.com/${chosenFallback}?auto=format&fit=crop&w=${format === "magazine" ? "1200" : "800"}&q=80`;
+  return `https://images.unsplash.com/${chosenFallback}?auto=format&fit=crop&w=800&q=80`;
 }

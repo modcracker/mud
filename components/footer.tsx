@@ -118,17 +118,15 @@ export default function Footer() {
             mud<span className="text-zinc-500">.cc</span>
           </Link>
           <p className="text-sm text-zinc-500 leading-relaxed">
-            A premium, ultra-flexible three-letter domain name indexing multi-industry relevance across wellness, food, sports, history, politics, and technology.
+            An open-access digital archive and sitemap dedicated to the study, preservation, and historical documentation of soil science, clays, and sediment structures globally.
           </p>
           <div className="pt-2">
-            <a
-              href={GODADDY_URL}
-              target="_blank"
-              rel="noopener sponsored"
+            <Link
+              href="/philanthropy"
               className="inline-flex items-center gap-1.5 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 px-4 py-2 rounded-lg text-xs font-semibold tracking-tight transition-all"
             >
-              Acquire mud.cc on GoDaddy <ExternalLink size={12} />
-            </a>
+              Support Earthen Conservation
+            </Link>
           </div>
         </div>
 
@@ -162,36 +160,34 @@ export default function Footer() {
 
         {/* Schema Links & Legal */}
         <div className="space-y-4 text-sm text-zinc-500">
-          <h4 className="text-xs font-bold text-zinc-300 uppercase tracking-widest">Domain Asset</h4>
+          <h4 className="text-xs font-bold text-zinc-300 uppercase tracking-widest">Scientific Registry</h4>
           <div className="space-y-2.5">
             <div>
-              <span className="block text-xs font-semibold text-zinc-400">Registry Status:</span>
-              <span className="text-emerald-500 font-medium">Available for Transfer</span>
+              <span className="block text-xs font-semibold text-zinc-400">Archive Status:</span>
+              <span className="text-emerald-500 font-medium">Fully Documented</span>
             </div>
             <div>
-              <span className="block text-xs font-semibold text-zinc-400">SEO Footprint:</span>
-              <span className="text-zinc-400">38+ Context-Dense Index Pages</span>
+              <span className="block text-xs font-semibold text-zinc-400">Archive Density:</span>
+              <span className="text-zinc-400">38+ Verified Research Nodes</span>
             </div>
             <div>
-              <span className="block text-xs font-semibold text-zinc-400">Authority Network:</span>
-              <a 
-                href="https://bridge.ws" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <span className="block text-xs font-semibold text-zinc-400">Collaborating Partners:</span>
+              <Link 
+                href="/philanthropy" 
                 className="text-zinc-500 hover:text-amber-500 transition-colors"
               >
-                bridge.ws
-              </a>
+                International Earthen Network
+              </Link>
             </div>
             <div className="text-xs pt-1 border-t border-zinc-900 leading-relaxed">
-              Domain listed securely through escrow. Instantly swap DNS upon completion.
+              Curated by the Department of Geochemical Studies. Published under open public license.
             </div>
             <div className="pt-2 border-t border-zinc-900 space-y-1.5 text-xs">
               <Link href="/philanthropy" className="block text-zinc-400 hover:text-amber-500 transition-colors font-medium">
                 ♥ Causes We Care About
               </Link>
               <Link href="/contact" className="block text-zinc-400 hover:text-amber-500 transition-colors font-medium">
-                ✉ Contact Registry Admin
+                ✉ Contact Research Admin
               </Link>
             </div>
           </div>
@@ -277,21 +273,27 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-600">
         <div>
-          © {new Date().getFullYear()} mud.cc. All rights reserved. Managed by domain administrative team.
+          © {new Date().getFullYear()} mud.cc. All rights reserved. Managed by Department of Geochemical Studies.
         </div>
         
         {/* Secret Contact Area Trigger */}
         <div className="flex items-center gap-4">
           <Link href="/" className="hover:text-zinc-400 transition-colors">Sitemap</Link>
           <span className="text-zinc-800">|</span>
-          <a 
-            href="https://bridge.ws" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <Link 
+            href="/philanthropy" 
             className="hover:text-zinc-400 transition-colors"
           >
-            bridge.ws
-          </a>
+            Environmental Stewardship
+          </Link>
+          <span className="text-zinc-800">|</span>
+          <Link 
+            href="/artist" 
+            className="hover:text-zinc-400 transition-colors group flex items-center gap-1.5"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500/40 group-hover:bg-amber-500 transition-colors animate-pulse" />
+            The Illustrator
+          </Link>
           <span className="text-zinc-800">|</span>
           <button
             onClick={() => {
@@ -325,7 +327,7 @@ export default function Footer() {
               </span>
               <h3 className="text-lg font-bold font-display text-zinc-100">Prove You Are Human</h3>
               <p className="text-xs text-zinc-500 mt-1 max-w-[280px] mx-auto">
-                Flip the tiles to match the mud-themed pairs and reveal our direct admin email.
+                Flip the tiles to match the mud-themed pairs and reveal our direct research contact email.
               </p>
             </div>
 

@@ -1,6 +1,6 @@
 {
-  "name": "mud.cc",
-  "description": "Premium domain name for sale. A content-rich SEO landing page showcasing the incredible versatility and multi-industry relevance of the mud.cc domain.",
+  "name": "International Mud Center",
+  "description": "The International Mud Center & Digital Archive (mud.cc) is a comprehensive, multi-disciplinary educational repository documenting the scientific, geological, architectural, and historical significance of sediment, clay, and soil resources worldwide.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

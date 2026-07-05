@@ -30,25 +30,25 @@ export default function Header() {
   // 1. Compile all searchable routes across 40+ pages
   const searchItems: SearchItem[] = [
     {
-      title: "mud.cc Directory Hub",
+      title: "mud.cc Research Archive",
       subtitle: "Main Showcase",
-      description: "Premium three-letter dictionary domain name showcase and development directory.",
+      description: "An open-access digital archive compiling 10 distinct verticals of fine sediment, clay, and soil sciences.",
       type: "System",
       url: "/",
       categoryName: "Home",
     },
     {
-      title: "Philanthropy & Giving Pledge",
-      subtitle: "Social Impact Pledge",
-      description: "Our pledge to donate 10% of the domain's ultimate sale price to clean water and soil conservation initiatives.",
+      title: "Philanthropy & Conservation Initiatives",
+      subtitle: "Environmental Action",
+      description: "Our commitment to donate 10% of administrative resources to clean sand-filter wells and soil preservation programs.",
       type: "System",
       url: "/philanthropy",
       categoryName: "About",
     },
     {
-      title: "Registry Contact & Acquisition",
-      subtitle: "Secure Purchase Portal",
-      description: "Complete the secure human-verification puzzle to contact the administrative registry for mud.cc.",
+      title: "Research Inquiry & Academic Contact",
+      subtitle: "Human Verification Contact Portal",
+      description: "Complete the secure human-verification puzzle to contact our administrative and research teams.",
       type: "System",
       url: "/contact",
       categoryName: "Contact",
@@ -252,7 +252,7 @@ export default function Header() {
               mud<span className="text-amber-500">.cc</span>
             </span>
             <span className="hidden sm:inline-flex items-center text-[10px] font-bold tracking-wider uppercase bg-stone-100 text-stone-500 px-2 py-0.5 rounded border border-stone-200 group-hover:border-amber-200 group-hover:text-amber-700 transition-all">
-              Directory
+              Archive
             </span>
           </Link>
 
@@ -293,7 +293,7 @@ export default function Header() {
                   : "text-stone-600 hover:text-stone-900 hover:bg-stone-100"
               }`}
             >
-              Registry Contact
+              Contact
             </Link>
 
             {/* Mobile Search button */}
@@ -305,15 +305,13 @@ export default function Header() {
               <Search size={18} />
             </button>
 
-            {/* Subtle GoDaddy CTA button */}
-            <a
-              href={GODADDY_URL}
-              target="_blank"
-              rel="noopener sponsored"
-              className="hidden lg:inline-flex items-center gap-1 bg-stone-900 hover:bg-stone-800 text-white font-bold px-4 py-2 rounded-lg text-xs uppercase tracking-wider transition-all"
+            {/* Conservation support link */}
+            <Link
+              href="/philanthropy"
+              className="hidden lg:inline-flex items-center gap-1 bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold px-4 py-2 rounded-lg text-xs uppercase tracking-wider transition-all"
             >
-              Acquire <ArrowRight size={12} />
-            </a>
+              Support Conservation <ArrowRight size={12} />
+            </Link>
           </nav>
         </div>
       </header>
