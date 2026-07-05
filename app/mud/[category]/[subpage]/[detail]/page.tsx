@@ -10,6 +10,7 @@ import { getPremiumMudImage } from "@/lib/images";
 import InteractiveSimulator from "@/components/interactive-simulator";
 import SidebarInterlinks from "@/components/sidebar-interlinks";
 import { CategoryIllustration } from "@/components/category-illustration";
+import TableOfContents from "@/components/table-of-contents";
 
 interface DetailPageProps {
   params: Promise<{ category: string; subpage: string; detail: string }>;
@@ -66,6 +67,12 @@ export default async function DetailEntryPage({ params }: DetailPageProps) {
   const theme = category.theme;
   const sem = SEMANTIC_MAP[category.slug];
 
+  // Create Table of Contents items
+  const tocItems = page.sections.map((section, idx) => ({
+    id: `section-${idx + 1}`,
+    text: section.heading,
+  }));
+
   // JSON-LD Article and Breadcrumb schemas
   const jsonLd = {
     "@context": "https://schema.org",
@@ -88,15 +95,32 @@ export default async function DetailEntryPage({ params }: DetailPageProps) {
         },
         "author": {
           "@type": "Person",
-          "name": page.author
+          "name": "Julian Vance",
+          "jobTitle": "Technical Illustrator & Ceramicist",
+          "url": `${baseUrl}/artist`,
+          "knowsAbout": [
+            "Soil Mechanics",
+            "Vernacular Architecture",
+            "Computational Art",
+            "Earthen Preservation",
+            "Scalable Vector Graphics"
+          ],
+          "sameAs": [
+            `${baseUrl}/artist`
+          ]
         },
         "publisher": {
           "@type": "Organization",
           "name": "mud.cc Registry",
+          "url": baseUrl,
           "logo": {
             "@type": "ImageObject",
             "url": `${baseUrl}/images/logo.png`
-          }
+          },
+          "publishingPrinciples": `${baseUrl}/artist`,
+          "sameAs": [
+            baseUrl
+          ]
         },
         "about": {
           "@type": "Thing",
@@ -221,7 +245,7 @@ export default async function DetailEntryPage({ params }: DetailPageProps) {
           <div className="space-y-10">
             {page.sections.map((section, idx) => (
               <section key={idx} className="space-y-4 bg-white/40 border border-stone-200/50 p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                <h2 className="text-xl md:text-2xl font-bold font-display text-stone-900 tracking-tight flex items-center gap-2">
+                <h2 id={`section-${idx + 1}`} className="text-xl md:text-2xl font-bold font-display text-stone-900 tracking-tight flex items-center gap-2 scroll-mt-24">
                   <span className="text-xs font-mono bg-stone-200 text-stone-600 w-5 h-5 flex items-center justify-center rounded-full">
                     {idx + 1}
                   </span>
@@ -248,6 +272,9 @@ export default async function DetailEntryPage({ params }: DetailPageProps) {
 
         {/* Right Column: Console / Technical Specifications & Cross links */}
         <aside className="lg:col-span-4 space-y-8 sticky top-8">
+          
+          {/* Table of Contents floating panel */}
+          <TableOfContents items={tocItems} />
           
           {/* Specifications Box */}
           <div className="bg-zinc-950 text-zinc-100 rounded-3xl p-6 border border-zinc-800 shadow-xl space-y-6 relative overflow-hidden">

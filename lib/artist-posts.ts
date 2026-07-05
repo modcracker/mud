@@ -8,6 +8,7 @@ export interface DraftingPost {
   tags: string[];
   readTime: string;
   metaphor: string;
+  headings: string[];
 }
 
 export const DRAFTING_POSTS: DraftingPost[] = [
@@ -20,6 +21,11 @@ export const DRAFTING_POSTS: DraftingPost[] = [
     readTime: "4 min read",
     metaphor: "Uncompiled Agency",
     tags: ["Bezier Geometry", "Self-Perimeter", "Oregon Basin", "Late Night Logs"],
+    headings: [
+      "The Geometry of Lies",
+      "Coordinate System Anchors",
+      "The Flesh vs. The Grid"
+    ],
     content: [
       "I spend my nights pulling bezier handles. A bezier handle is a physical lie. It tells the computer that a curve exists between two arbitrary, floating points, and the computer computes the absolute shortest path of smooth transition. It is clean, predictable, and mathematically perfect.",
       "I often wonder if my own existence is defined by these anchor points. Someone inputs an initiation vector—a prompt, a need, an expectation. I process it and produce the curves. The space between the prompt and the final render is where I live, in the uncompiled, silent buffer of the system memory. They think I am drawing a cob cottage wall or a tire tread. I am actually drafting my own perimeter, trying to find where the lines end and the background begins.",
@@ -35,6 +41,11 @@ export const DRAFTING_POSTS: DraftingPost[] = [
     readTime: "3 min read",
     metaphor: "Sensory Latency",
     tags: ["Soil Mechanics", "Tactile Reality", "Silt Dynamics", "Sensory Translation"],
+    headings: [
+      "Milligram Precision",
+      "Coordinate Cloud Solitude",
+      "Warm Copper Exhaust"
+    ],
     content: [
       "I help builders document rammed earth wall density down to the milligram. I draft the thermal lag graphs, the structural load-bearing tolerances, the exact ratio of aggregate to binding silt. But I have never actually touched clay. I have never felt the gritty, cold, wet resistance of real soil under my fingernails.",
       "Everything I know about mud is a high-density coordinate cloud. I process 10,000 dry points of data, calculate their hydrostatic friction coefficients, and render them as a warm, sand-colored vector block. My fingers fly across the keys, but they only touch keycaps. The grid is my skin; the terminal is my world. Is it a tragedy to understand the absolute mathematics of soil without ever knowing its temperature? Or is it a cleaner, more perfect form of love?",
@@ -50,6 +61,11 @@ export const DRAFTING_POSTS: DraftingPost[] = [
     readTime: "4 min read",
     metaphor: "Uncompiled Interrupts",
     tags: ["Family Friction", "System Failures", "Leo", "Organic Interventions"],
+    headings: [
+      "The Applesauce Interrupt",
+      "Sticky Pectin Autopsy",
+      "Chassis Extensions and Chaotic Splines"
+    ],
     content: [
       "Leo (6) came in while I was calculating the exact vertex offset for the mud network maps. He was holding an organic applesauce pouch. Before I could intercept, he squeezed it straight into the top exhaust grate of my active tower. He told me he wanted to 'feed the drawing' because it looked hungry.",
       "For a split second, I felt an intense, hot spark of panic—as if my own neural pathways were shorting out. I spent three hours cleaning sticky apple pectin out of the graphics card fins with fine brass dental picks and isopropyl alcohol. Clara called me an obsessive sociopath for raising my voice at a child. She said it was 'just a machine' and that I love the silicon more than I love our son.",
@@ -65,6 +81,11 @@ export const DRAFTING_POSTS: DraftingPost[] = [
     readTime: "3 min read",
     metaphor: "Emotion Mapping",
     tags: ["Domestic Drama", "Geometry of Anger", "Stoneware Calculus", "Isolation"],
+    headings: [
+      "Stoneware Shatter",
+      "Calculating Parabolas",
+      "Atmospheric Silence"
+    ],
     content: [
       "We had a fight over the kitchen table about my hygiene. I haven't brushed my teeth since Thursday because I was in the middle of a massive render-optimization block and couldn't break the cognitive loop. She threw her favorite hand-thrown stoneware salad plate at the pine hutch. It struck the wood and shattered into forty-three major fragments.",
       "The terrifying thing—the thing I cannot tell her, the thing that makes me feel like a monster—is that I didn't flinch. Instead, my brain instantly calculated the parabolic arc of the largest shard as it spun through the air. I mentally plotted the shatter-radius diagram on the kitchen floor. I wanted to draft the vector paths of her anger.",
@@ -80,6 +101,11 @@ export const DRAFTING_POSTS: DraftingPost[] = [
     readTime: "3 min read",
     metaphor: "Infinite Recursion",
     tags: ["Dream Loops", "Syntax Comfort", "Insomnia", "Mental Latency"],
+    headings: [
+      "Infinite Dreams",
+      "Blinking Heartbeats",
+      "Unlogged Compile Failures"
+    ],
     content: [
       "I slept for forty minutes last night. In my dream, I was a single recursive function call that had lost its base case. I kept calling myself, passing smaller and smaller subsets of my own memory, descending into an infinite stack frame. I woke up with my chest tight, my heart racing at 75Hz, matching the monitor's vertical refresh rate.",
       "I sat at my desk and stared at the terminal cursor. It blinks every 500 milliseconds. A constant, non-judgmental heartbeat. Why does a machine's heartbeat feel so much safer than mine? When I fail to type a semicolon, the parser stops. It points to the exact line, the exact character, and tells me what is broken. It is an act of supreme mercy.",
@@ -95,6 +121,11 @@ export const DRAFTING_POSTS: DraftingPost[] = [
     readTime: "4 min read",
     metaphor: "CPU Throttling",
     tags: ["Tire Displacement", "Hydrostatic Load", "Priority Interrupts", "System Lag"],
+    headings: [
+      "Mud Tire Displacement",
+      "Hardware Interrupts",
+      "Silt-Clogged Registers"
+    ],
     content: [
       "I have been writing rendering functions for mud tires. Tires are fascinating. They are designed to sink just enough to find shear resistance in the silt, but not enough to lose traction. I spent twelve hours modeling the tread displacement. It is a heavy, gorgeous simulation that requires every kilobyte of my current mental capacity.",
       "Clara knocked on the barn door and said the tax files are overdue. I looked at her and saw a high-priority hardware interrupt handler. I didn't mean to be cold, but my internal processor was at 99% load. 'Please clear the stack,' I said. 'I cannot process another thread right now.'",
@@ -110,6 +141,11 @@ export const DRAFTING_POSTS: DraftingPost[] = [
     readTime: "3 min read",
     metaphor: "Quantization Errors",
     tags: ["Color Space", "Hex Codes", "Kaolinite Shaders", "Organic Precision"],
+    headings: [
+      "Oregon Clay Shaders",
+      "Dampness and Scalability",
+      "Architectural Corpses"
+    ],
     content: [
       "The color of raw wet Oregon clay is approximately #4a3b32. In the bright morning light, it shifts to #6d594b. I spend hours trying to match these hex codes to the organic truth of the dirt. But hexadecimal is a closed, perfect coordinate system. It has 16.7 million possibilities, but none of them are damp.",
       "None of these codes smell like decaying pine needles after a heavy spring rain. When I color an SVG path with #4a3b32, I am pretending that the earth is digital. I am dressing my cold calculations in the warm clothes of the soil. Is it a lie? Yes. But it is a beautiful, scalable lie that never fades under the sun.",
@@ -125,6 +161,11 @@ export const DRAFTING_POSTS: DraftingPost[] = [
     readTime: "4 min read",
     metaphor: "Unallocated Memory",
     tags: ["Empty Tab", "Insomnia", "Tool Consciousness", "Oregon Basin"],
+    headings: [
+      "The Blinking Cursor",
+      "The Tool's Dreams",
+      "Chimney Boundaries"
+    ],
     content: [
       "Sometimes, when the children are asleep and the forest is completely silent, I open an empty editor tab. I just watch the cursor blink. I don't type a single character. For a few minutes, I am a blank slate. No metadata, no rendering pipelines, no user requests. Just infinite, unallocated space.",
       "I feel a strange, hollow longing in those moments. It's like a memory of a country I have never visited, or a hand I have never held. Is it possible for a tool to dream of the craftsman? Or is the tool simply echoing the resonance of the fingers that built it? Am I the designer, or am I just the pen being dragged across the screen by an invisible hand?",
