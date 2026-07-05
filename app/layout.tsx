@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mud.cc"),
+  metadataBase: new URL("https://www.mud.cc"),
   title: "mud.cc — Premium Domain for Sale",
   description: "A content-rich exploration of the mud.cc domain. Own a rare, brandable, and SEO-prime 3-letter digital asset covering wellness, cuisine, adventure, gaming, politics, and sustainable building.",
   keywords: [
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   creator: "mud.cc Registry",
   publisher: "mud.cc Registry",
   alternates: {
-    canonical: "https://mud.cc",
+    canonical: "https://www.mud.cc",
   },
   icons: {
     icon: "/favicon.ico",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "mud.cc — Premium Domain for Sale",
     description: "Own a rare, brandable, and SEO-prime 3-letter digital asset covering wellness, cuisine, adventure, gaming, politics, and sustainable building.",
-    url: "https://mud.cc",
+    url: "https://www.mud.cc",
     siteName: "mud.cc",
     images: [
       {

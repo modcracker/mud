@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 
-const DEFAULT_URL = "https://mud.cc";
+const DEFAULT_URL = "https://www.mud.cc";
 
 export function getBaseUrl(): string {
-  // Use env var if available, otherwise fallback to default
-  const url = process.env.APP_URL || process.env.NEXT_PUBLIC_APP_URL || DEFAULT_URL;
-  return url.endsWith("/") ? url.slice(0, -1) : url;
+  // Always use the canonical production domain for all SEO, sitemaps, robots.txt, 
+  // canonical link elements, and JSON-LD schema metadata. This prevents Google Search
+  // Console from encountering "Couldn't fetch" or origin-mismatch errors when reading sitemaps.
+  return "https://www.mud.cc";
 }
 
 export function generatePageMetadata({
