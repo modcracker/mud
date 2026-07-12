@@ -55,7 +55,7 @@ export const CATEGORIES: Category[] = [
     title: "Dead Sea Mud",
     subtitle: "Skincare & Wellness",
     shortTeaser: "Rejuvenate with ancient, mineral-rich therapeutic clay of the Jordan Rift Valley.",
-    description: "Dead Sea mud is world-renowned for its high concentration of magnesium, calcium, and potassium, making it a powerful therapeutic agent for skincare, arthritis relief, and general cellular rejuvenation.",
+    description: "Explore Dead Sea mud skincare & balneotherapy. This premium therapeutic clay is rich in magnesium, perfect for skin repair, relief, and deep dermal wellness.",
     theme: {
       name: "wellness-teal",
       primary: "teal",
@@ -165,7 +165,7 @@ export const CATEGORIES: Category[] = [
     title: "Mississippi Mud Pie",
     subtitle: "Culinary & Comfort Food",
     shortTeaser: "Indulge in the rich, dark, and decadent history of the American South's favorite dessert.",
-    description: "Mississippi Mud Pie represents the pinnacle of Southern baking—a deeply decadent, layered chocolate dessert that mirrors the dark, rich silt of the Mississippi River banks.",
+    description: "Savor the rich history of Mississippi Mud Pie, a classic Southern dessert. Discover authentic chocolate recipes, layered baking secrets, and culinary heritage.",
     theme: {
       name: "culinary-brown",
       primary: "amber",
@@ -275,7 +275,7 @@ export const CATEGORIES: Category[] = [
     title: "Mud Run",
     subtitle: "Sport & Adventure",
     shortTeaser: "Push your limits through the raw, gritty world of obstacle racing and mud bogging.",
-    description: "Mud runs and obstacle course races (OCRs) represent a primal return to physical challenge, where participants run, climb, crawl, and slide through deep, thick clay.",
+    description: "Conquer the extreme world of mud runs & obstacle racing. Learn the biomechanical science, endurance training, and grit needed to master mud-soaked courses.",
     theme: {
       name: "sport-orange",
       primary: "orange",
@@ -345,8 +345,8 @@ export const CATEGORIES: Category[] = [
       },
       {
         slug: "mud-wrestling",
-        title: "Clay and Conflict: The Spectacle of Mud Wrestling",
-        description: "Deconstructing the cultural history of mud wrestling, from ancient folk sports to theatrical entertainment.",
+        title: "The History of Mud Wrestling: From Ancient Clay to Modern Spectacle",
+        description: "Explore the complete history of mud wrestling, tracing its roots from ancient folk sports and clay grappling to modern theatrical entertainment.",
         layout: "masonry",
         sections: [
           {
@@ -385,7 +385,7 @@ export const CATEGORIES: Category[] = [
     title: "MUD — The Game",
     subtitle: "Gaming & Internet History",
     shortTeaser: "Journey back to the text-based roots of virtual worlds, MMOs, and online multiplayer gaming.",
-    description: "MUD (Multi-User Dungeon) represents the absolute genesis of virtual worlds, where text-based descriptions and community interactions laid the foundation for modern MMORPGs.",
+    description: "Explore the history of MUDs, the text-based virtual worlds of early internet gaming. Learn how multi-user dungeons paved the way for modern online MMORPGs.",
     theme: {
       name: "gaming-green",
       primary: "emerald",
@@ -495,7 +495,7 @@ export const CATEGORIES: Category[] = [
     title: "Mudslinging",
     subtitle: "Politics & Language",
     shortTeaser: "Unpack the dark and dirty history of negative campaigning and political character attacks.",
-    description: "Mudslinging, the art of political character assassination and slander, has been an integral part of representative democracies since the days of ancient Rome.",
+    description: "Examine the history of mudslinging and negative political campaigns. Analyze the rhetorical mechanics, media propaganda, and debate tactics from Rome to today.",
     theme: {
       name: "politics-red",
       primary: "red",
@@ -570,7 +570,7 @@ export const CATEGORIES: Category[] = [
     title: "Clear as Mud",
     subtitle: "Idioms & English Language",
     shortTeaser: "Explore the ironic, humorous, and expressive world of mud-based idioms and metaphors.",
-    description: "The English language is rich with colorful metaphors, and 'clear as mud' remains one of our finest, most enduring pieces of everyday verbal irony.",
+    description: "Uncover the etymology & linguistic history of the phrase 'clear as mud.' Explore ironic idioms, rhetorical metaphors, and semantic communication breakdowns.",
     theme: {
       name: "language-purple",
       primary: "indigo",
@@ -607,8 +607,8 @@ export const CATEGORIES: Category[] = [
       },
       {
         slug: "stick-in-the-mud",
-        title: "Don't Be a Stick-in-the-Mud: A History of Obstruction",
-        description: "Deconstructing the cultural and literary evolution of the 'stick-in-the-mud' archetype across English literature.",
+        title: "Adventurous vs. Stick-in-the-Mud: A History of Personality & Obstruction",
+        description: "Compare the adventurous, open-minded personality against the cautious 'stick-in-the-mud' archetype, tracing its psychological and historical evolution.",
         layout: "timeline",
         sections: [
           {
@@ -645,7 +645,7 @@ export const CATEGORIES: Category[] = [
     title: "Mud Architecture",
     subtitle: "Sustainable Building",
     shortTeaser: "Discover the ancient, eco-friendly, and surprisingly modern world of earthen construction.",
-    description: "Mud architecture—utilizing adobe, cob, and rammed earth—is the oldest and most widespread building technology on Earth, now experiencing a massive sustainable revival.",
+    description: "Discover sustainable mud architecture. Learn the engineering science of cob, adobe block, rammed earth thermal mass, and zero-carbon ecological building.",
     theme: {
       name: "arch-clay",
       primary: "stone",
@@ -755,7 +755,7 @@ export const CATEGORIES: Category[] = [
     title: "Mudlarking",
     subtitle: "Hobby & History",
     shortTeaser: "Unearth lost treasures and urban history buried along the tidal banks of the River Thames.",
-    description: "Mudlarking—searching the riverbanks at low tide for historical artifacts—is a unique blend of amateur archaeology, treasure hunting, and urban history.",
+    description: "Unearth lost history with mudlarking. Discover how River Thames archaeology preserves Roman coins, Tudor artifacts, and urban heritage in anaerobic silt.",
     theme: {
       name: "hobby-mudlark",
       primary: "cyan",
@@ -826,17 +826,17 @@ export const CATEGORIES: Category[] = [
       {
         slug: "urban-archaeology",
         title: "The Dirt on Cities: Urban Archaeology",
-        description: "Understanding how river sediments and city dumps act as structural historical archives.",
+        description: "Understanding how river sediments, sedimentology principles, and clay mineralogy help us decode historical urban development.",
         layout: "masonry",
         sections: [
           {
-            text: "Every major city built on a river is sitting on top of a multi-layered, muddy archive. Urban archaeology is the science of decoding these physical sediment layers to reconstruct how cities grew, traded, suffered, and evolved."
+            text: "Every major city built on a river is sitting on top of a multi-layered, muddy archive. Modern sedimentology and urban archaeology decode these physical sediment layers to reconstruct how cities grew, traded, suffered, and evolved through natural deposition cycles."
           }
         ],
         masonry: [
           {
             title: "Sedimentary Stratigraphy",
-            text: "Over centuries, cities build up layer by layer. In riverbeds, the oldest Roman artifacts sit deep at the bottom, while medieval pottery, Tudor metals, and modern plastics stack orderly on top, forming a physical history book.",
+            text: "Over centuries, cities build up layer by layer. Applying principles of sedimentology, we analyze how the oldest Roman artifacts sit deep at the bottom in thick, anaerobic clay mineralogy matrices, while medieval pottery, Tudor metals, and modern plastics stack orderly on top.",
             size: "medium",
             image: "https://picsum.photos/seed/river_thames/600/400"
           },
@@ -865,7 +865,7 @@ export const CATEGORIES: Category[] = [
     title: "Mud Season",
     subtitle: "Nature & Geography",
     shortTeaser: "Survive and appreciate the messy, transitional, and wild fifth season of the natural calendar.",
-    description: "Mud season represents the raw, slushy transition period between winter's freeze and spring's bloom, characterized by melting snow and deeply unpaved roads.",
+    description: "Navigate the science and logistics of mud season. Explore spring cryosphere freeze-thaw cycles, unpaved road damage, and geotechnical soil stabilization.",
     theme: {
       name: "nature-forest",
       primary: "lime",
@@ -975,7 +975,7 @@ export const CATEGORIES: Category[] = [
     title: "Mud Tires",
     subtitle: "Automotive & Off-Roading",
     shortTeaser: "Master the engineering, tread design, and culture behind high-traction off-road tires.",
-    description: "Mud-terrain (M/T) tires are marvels of modern materials science, featuring massive tread blocks and deep voids designed to find traction in deep earth.",
+    description: "Master off-road terrain with mud-terrain tires. Analyze tread void physics, centrifugal self-cleaning evacuation, and high-traction sidewall engineering.",
     theme: {
       name: "automotive-dark",
       primary: "zinc",

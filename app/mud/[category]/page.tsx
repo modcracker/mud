@@ -304,22 +304,38 @@ export default async function CategoryHubPage({ params }: CategoryPageProps) {
           "name": topic
         })),
         "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": baseUrl
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": category.title,
-              "item": `${baseUrl}/mud/${category.slug}`
-            }
-          ]
+          "@id": `${baseUrl}/mud/${category.slug}/#breadcrumbs`
         }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}/mud/${category.slug}/#breadcrumbs`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": baseUrl
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": category.title,
+            "item": `${baseUrl}/mud/${category.slug}`
+          }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${baseUrl}/mud/${category.slug}/#sitelinks`,
+        "name": `Publications in ${category.title} Registry Node`,
+        "description": `Browse historical, technical, and scientific subpages curated under mud.cc ${category.title} section.`,
+        "itemListElement": category.subpages.map((sub, sIdx) => ({
+          "@type": "ListItem",
+          "position": sIdx + 1,
+          "name": sub.title,
+          "url": `${baseUrl}/mud/${category.slug}/${sub.slug}`
+        }))
       },
       ...(faqs.length > 0
         ? [
@@ -394,11 +410,12 @@ export default async function CategoryHubPage({ params }: CategoryPageProps) {
           <div className="absolute top-0 left-0 w-[75%] h-[75%] rounded-3xl overflow-hidden shadow-lg border border-stone-300 transform -rotate-3 transition-transform hover:rotate-0 duration-500 z-10">
             <Image
               src={getPremiumMudImage(category.slug, "layered1")}
-              alt={`${category.title} background composite`}
+              alt={`Detailed scientific analysis of ${category.title} — Premium 3-letter domain mud.cc research index`}
               fill
               className="object-cover"
               sizes="35vw"
               referrerPolicy="no-referrer"
+              loading="lazy"
             />
           </div>
 
@@ -406,11 +423,12 @@ export default async function CategoryHubPage({ params }: CategoryPageProps) {
           <div className="absolute bottom-0 right-0 w-[75%] h-[75%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform rotate-3 transition-transform hover:rotate-0 duration-500 z-20">
             <Image
               src={getPremiumMudImage(category.slug, "layered2")}
-              alt={`${category.title} foreground composite`}
+              alt={`High-resolution macro photography illustrating ${category.title} sedimentology and clay mineralogy`}
               fill
               className="object-cover"
               sizes="35vw"
               referrerPolicy="no-referrer"
+              loading="lazy"
             />
           </div>
 

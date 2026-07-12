@@ -11,6 +11,7 @@ import InteractiveSimulator from "@/components/interactive-simulator";
 import SidebarInterlinks from "@/components/sidebar-interlinks";
 import { CategoryIllustration } from "@/components/category-illustration";
 import TableOfContents from "@/components/table-of-contents";
+import RelatedResearch from "@/components/related-research";
 
 interface DetailPageProps {
   params: Promise<{ category: string; subpage: string; detail: string }>;
@@ -351,6 +352,15 @@ export default async function DetailEntryPage({ params }: DetailPageProps) {
 
         </aside>
       </main>
+
+      {/* Explore Related Research Verticals */}
+      <div className="max-w-4xl mx-auto px-6">
+        <RelatedResearch
+          currentCategorySlug={category.slug}
+          currentSubpageSlug={subpage.slug}
+          currentDetailSlug={page.slug}
+        />
+      </div>
 
       {/* Semantic Integration Showcase Banner */}
       <section className="max-w-4xl mx-auto px-6 mt-16">

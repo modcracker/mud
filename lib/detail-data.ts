@@ -519,10 +519,10 @@ const EXTRA_DETAILS_DICTIONARY: Record<string, Record<string, CompactDetail>> = 
     },
     "mud-wrestling": {
       slug: "tribological-shear-thinning",
-      title: "Tribological Shear-Thinning of Semi-Liquid Clays",
-      subtitle: "Friction Coefficients and Skin-to-Silt Interaction Dynamics",
-      description: "A physics study of friction coefficient changes and non-Newtonian fluid behaviors during athletic mud grappling.",
-      keywords: ["shear thinning", "tribology", "wrestling clay", "non newtonian fluid"],
+      title: "The History of Mud Wrestling & Tribological Shear-Thinning",
+      subtitle: "From Ancient Athletic Clay Grappling to modern Non-Newtonian Tribology",
+      description: "Explore the comprehensive history of mud wrestling alongside a chemical study of friction coefficient changes and non-Newtonian fluid behaviors during athletic mud grappling.",
+      keywords: ["history of mud wrestling", "mud wrestling history", "mud wrestling", "shear thinning", "tribology", "wrestling clay", "non newtonian fluid"],
       specs: [
         { label: "Friction Coefficient", value: "0.12 μ (Slippery)" },
         { label: "Yield Stress", value: "45 Pa (Solid-to-liquid)" },
@@ -693,10 +693,10 @@ const EXTRA_DETAILS_DICTIONARY: Record<string, Record<string, CompactDetail>> = 
     },
     "stick-in-the-mud": {
       slug: "obstructionist-psychology",
-      title: "The Obstructionist Archetype & Behavioral Inertia",
-      subtitle: "Psychological Profiles and Social Dynamics of 'Sticks' in History",
-      description: "A psychological study analyzing risk aversion, behavioral inertia, and social friction in personality types labeled as obstructionist.",
-      keywords: ["obstructionist archetype", "behavioral inertia", "risk aversion", "personality psychology"],
+      title: "Adventurous vs. Stick-in-the-Mud: Behavioral Inertia & The Obstructionist Archetype",
+      subtitle: "Psychological Profiles of Openness vs. Cautious 'Sticks' in History",
+      description: "An in-depth psychological analysis of the adventurous, novelty-seeking personality vs. the cautious 'stick-in-the-mud' archetype, analyzing risk aversion and behavioral inertia.",
+      keywords: ["adventurous vs stick in the mud", "adventurous vs stick-in-the-mud", "stick in the mud personality", "obstructionist archetype", "behavioral inertia", "personality psychology"],
       specs: [
         { label: "Trait Classification", value: "Low Openness to Experience (Big Five)" },
         { label: "Risk Aversion Index", value: "Top 15th percentile" },
@@ -704,12 +704,12 @@ const EXTRA_DETAILS_DICTIONARY: Record<string, Record<string, CompactDetail>> = 
         { label: "Friction Coefficient", value: "High (In group environments)" }
       ],
       headings: [
-        "The Big Five Profile of the Obstructionist",
+        "Adventurous Personalities vs. The Stick-in-the-Mud",
         "Status Quo Bias and Loss Aversion Kinetics",
         "Social Friction and Group Dynamics"
       ],
       texts: [
-        "The classical 'stick-in-the-mud' personality is characterized by exceptionally low scores in 'Openness to Experience' paired with high scores in 'Conscientiousness'. This combination yields individuals who view change as a systemic hazard.",
+        "In personality psychology, the dynamic of the adventurous mind versus the stick-in-the-mud represents the classic clash between high and low openness to experience. The classical 'stick-in-the-mud' personality is characterized by exceptionally low scores in 'Openness to Experience' paired with high scores in 'Conscientiousness', viewing change and exploration as systemic hazards.",
         "Psychologically, sticks behave through severe Status Quo Bias. They overestimate the risks of any action while underestimating the severe costs of complete stagnation, locking themselves in place.",
         "In group environments, obstructionists serve an interesting evolutionary purpose: they prevent groups from pursuing high-risk, unproven ventures. However, in fast-shifting environments, they cause severe drag."
       ],
@@ -842,7 +842,7 @@ const EXTRA_DETAILS_DICTIONARY: Record<string, Record<string, CompactDetail>> = 
       title: "Frost Heave Geotechnics & Soil Shear Failures",
       subtitle: "The Mechanical Physics of Spring Thaw Pavement Failures",
       description: "A geotechnical engineering analysis of ice lens formation and the sudden shear strength collapse of thawing soils.",
-      keywords: ["frost heaves", "geotechnical engineering", "soil shear failure", "spring thaw"],
+      keywords: ["frost heave", "frost heaves", "what is frost heave", "what causes frost heaving", "geotechnical engineering", "soil shear failure", "spring thaw"],
       specs: [
         { label: "Frost Penetration Depth", value: "1.2 – 1.8 meters" },
         { label: "Heaving Pressure", value: "Up to 1.5 MPa" },

@@ -272,8 +272,20 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-600">
-        <div>
-          © {new Date().getFullYear()} mud.cc. All rights reserved. Managed by Department of Geochemical Studies.
+        <div className="space-y-1">
+          <div>
+            © {new Date().getFullYear()} mud.cc. All rights reserved. Managed by Department of Geochemical Studies.
+          </div>
+          <div className="text-[10px] font-mono tracking-wider">
+            <a 
+              href="https://feelize.com/go" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-zinc-700 hover:text-amber-500 transition-colors uppercase font-bold"
+            >
+              Website by Feelize
+            </a>
+          </div>
         </div>
         
         {/* Secret Contact Area Trigger */}

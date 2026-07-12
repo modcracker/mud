@@ -385,11 +385,11 @@ function MagazineLayout({
           <div className="relative aspect-[16/10] w-full rounded-3xl overflow-hidden shadow-md border border-stone-200/80">
             <Image
               src={getPremiumMudImage(subpage.slug, "magazine")}
-              alt={subpage.title}
+              alt={`Editorial documentary photograph of ${subpage.title} — Digital soil science archive at mud.cc`}
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 55vw"
-              priority
+              loading="lazy"
               referrerPolicy="no-referrer"
             />
           </div>
@@ -717,10 +717,11 @@ function MasonryLayout({
                     }`}>
                       <Image
                         src={getPremiumMudImage(card.image, isLarge ? "tall" : "wide")}
-                        alt={card.title}
+                        alt={`Geological sediment study representing ${card.title} — Earthen study archive mud.cc`}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 30vw"
+                        loading="lazy"
                         referrerPolicy="no-referrer"
                       />
                     </div>

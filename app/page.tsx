@@ -9,7 +9,7 @@ import { CategoryIllustration } from "@/components/category-illustration";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "International Mud Center & Digital Archive — mud.cc",
-  description: "Discover the International Mud Center & Digital Archive (mud.cc). A comprehensive, multi-disciplinary research hub and directory mapping soil science, clay mineralogy, sustainable earthen architecture, and historical sediment studies.",
+  description: "Explore mud.cc, a premium 3-letter domain & digital real estate asset hosting a global research archive of clay mineralogy, rammed earth, & soil science.",
   path: "/",
   keywords: [
     "mud.cc",
@@ -276,6 +276,147 @@ export default function HomePage() {
             })}
           </div>
 
+        </div>
+      </section>
+
+      {/* Academic Semantic Registry Section (SEO Direct Internal Linking Hub) */}
+      <section className="py-20 px-6 bg-white border-t border-stone-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center space-y-4 mb-16">
+            <span className="inline-flex items-center gap-1.5 bg-amber-100 text-amber-800 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider border border-amber-200">
+              <TrendingUp size={12} className="text-amber-600" /> Academic Semantic Registry
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold font-display tracking-tight text-stone-900">
+              Trending Research Publications
+            </h2>
+            <p className="text-stone-600 max-w-2xl mx-auto text-base">
+              Direct access index to high-citation literature and deep-dives compiled across our multidisciplinary database.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            {/* Link 1: History of Mud Wrestling */}
+            <Link
+              href="/mud/mud-run/mud-wrestling/tribological-shear-thinning"
+              className="group p-6 rounded-2xl border border-stone-200 bg-stone-50/50 hover:bg-stone-50 hover:border-amber-500/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+            >
+              <div className="space-y-3">
+                <span className="text-[10px] font-mono text-amber-600 font-bold uppercase tracking-widest block">ETHNOGRAPHY &amp; PHYSICAL EDUCATION</span>
+                <h3 className="text-lg font-bold font-display text-stone-900 group-hover:text-amber-600 transition-colors">
+                  The History of Mud Wrestling
+                </h3>
+                <p className="text-xs text-stone-600 leading-relaxed">
+                  A historical exploration tracing mud wrestling from ancient folk grappling and ritual crop celebrations to 1930s carnival spectacles and modern entertainment.
+                </p>
+              </div>
+              <div className="pt-4 flex items-center justify-between text-xs font-mono text-stone-400 group-hover:text-amber-600 transition-colors">
+                <span>Ref: /mud-wrestling/history</span>
+                <span className="font-bold inline-flex items-center gap-1">Read Publication <ArrowRight size={12} /></span>
+              </div>
+            </Link>
+
+            {/* Link 2: Adventurous vs. Stick in the mud */}
+            <Link
+              href="/mud/clear-as-mud/stick-in-the-mud/obstructionist-psychology"
+              className="group p-6 rounded-2xl border border-stone-200 bg-stone-50/50 hover:bg-stone-50 hover:border-amber-500/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+            >
+              <div className="space-y-3">
+                <span className="text-[10px] font-mono text-indigo-600 font-bold uppercase tracking-widest block">BEHAVIORAL PSYCHOLOGY &amp; IDIOMS</span>
+                <h3 className="text-lg font-bold font-display text-stone-900 group-hover:text-indigo-600 transition-colors">
+                  Adventurous vs. Stick in the Mud
+                </h3>
+                <p className="text-xs text-stone-600 leading-relaxed">
+                  Deconstructing the Big Five personality axis comparing highly adventurous, novelty-seeking minds with the status-quo bias of the cautious &quot;stick-in-the-mud&quot;.
+                </p>
+              </div>
+              <div className="pt-4 flex items-center justify-between text-xs font-mono text-stone-400 group-hover:text-indigo-600 transition-colors">
+                <span>Ref: /stick-in-the-mud/psych</span>
+                <span className="font-bold inline-flex items-center gap-1">Read Publication <ArrowRight size={12} /></span>
+              </div>
+            </Link>
+
+            {/* Link 3: What causes Frost Heaving? */}
+            <Link
+              href="/mud/mud-season/new-england-mud-season/frost-heave-geotechnics"
+              className="group p-6 rounded-2xl border border-stone-200 bg-stone-50/50 hover:bg-stone-50 hover:border-amber-500/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+            >
+              <div className="space-y-3">
+                <span className="text-[10px] font-mono text-emerald-600 font-bold uppercase tracking-widest block">GEOTECHNICAL ENGINEERING</span>
+                <h3 className="text-lg font-bold font-display text-stone-900 group-hover:text-emerald-600 transition-colors">
+                  What Causes Frost Heaving?
+                </h3>
+                <p className="text-xs text-stone-600 leading-relaxed">
+                  The physics of ice lens growth and capillary suction in silty soils during spring thaw, detailing severe shear collapse and road maintenance.
+                </p>
+              </div>
+              <div className="pt-4 flex items-center justify-between text-xs font-mono text-stone-400 group-hover:text-emerald-600 transition-colors">
+                <span>Ref: /frost-heave/geotech</span>
+                <span className="font-bold inline-flex items-center gap-1">Read Publication <ArrowRight size={12} /></span>
+              </div>
+            </Link>
+
+            {/* Link 4: Sustainable Mud Architecture */}
+            <Link
+              href="/mud/mud-architecture/adobe-and-cob-construction"
+              className="group p-6 rounded-2xl border border-stone-200 bg-stone-50/50 hover:bg-stone-50 hover:border-amber-500/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+            >
+              <div className="space-y-3">
+                <span className="text-[10px] font-mono text-stone-600 font-bold uppercase tracking-widest block">VERNACULAR CONSTRUCTION &amp; ENGINEERING</span>
+                <h3 className="text-lg font-bold font-display text-stone-900 group-hover:text-stone-700 transition-colors">
+                  Sustainable Mud Architecture
+                </h3>
+                <p className="text-xs text-stone-600 leading-relaxed">
+                  A comprehensive comparative study on the physical properties of earthen architecture, specifically mapping Adobe brick structures vs. monolithic Cob houses.
+                </p>
+              </div>
+              <div className="pt-4 flex items-center justify-between text-xs font-mono text-stone-400 group-hover:text-stone-700 transition-colors">
+                <span>Ref: /mud-architecture/adobe-cob</span>
+                <span className="font-bold inline-flex items-center gap-1">Read Publication <ArrowRight size={12} /></span>
+              </div>
+            </Link>
+
+            {/* Link 5: Mudslinging definition & origin */}
+            <Link
+              href="/mud/mudslinging"
+              className="group p-6 rounded-2xl border border-stone-200 bg-stone-50/50 hover:bg-stone-50 hover:border-amber-500/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+            >
+              <div className="space-y-3">
+                <span className="text-[10px] font-mono text-red-600 font-bold uppercase tracking-widest block">SOCIOLINGUISTICS &amp; ETHOLOGY</span>
+                <h3 className="text-lg font-bold font-display text-stone-900 group-hover:text-red-600 transition-colors">
+                  Mudslinging &amp; Political Rhetoric
+                </h3>
+                <p className="text-xs text-stone-600 leading-relaxed">
+                  The history, definition, and sociological impact of mudslinging campaigns, from physical stock pelting in Tudor times to modern negative digital media.
+                </p>
+              </div>
+              <div className="pt-4 flex items-center justify-between text-xs font-mono text-stone-400 group-hover:text-red-600 transition-colors">
+                <span>Ref: /mudslinging/rhetoric</span>
+                <span className="font-bold inline-flex items-center gap-1">Read Publication <ArrowRight size={12} /></span>
+              </div>
+            </Link>
+
+            {/* Link 6: Mississippi Mud Pie Definition */}
+            <Link
+              href="/mud/mississippi-mud-pie/classic-recipe-lore"
+              className="group p-6 rounded-2xl border border-stone-200 bg-stone-50/50 hover:bg-stone-50 hover:border-amber-500/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+            >
+              <div className="space-y-3">
+                <span className="text-[10px] font-mono text-rose-600 font-bold uppercase tracking-widest block">CULINARY ANTHROPOLOGY</span>
+                <h3 className="text-lg font-bold font-display text-stone-900 group-hover:text-rose-600 transition-colors">
+                  Definition of Mississippi Mud Pie
+                </h3>
+                <p className="text-xs text-stone-600 leading-relaxed">
+                  A comprehensive culinary definition and folklore history of Mississippi Mud Pie, explaining the geological inspiration behind its dense layers.
+                </p>
+              </div>
+              <div className="pt-4 flex items-center justify-between text-xs font-mono text-stone-400 group-hover:text-rose-600 transition-colors">
+                <span>Ref: /mud-pie/definition</span>
+                <span className="font-bold inline-flex items-center gap-1">Read Publication <ArrowRight size={12} /></span>
+              </div>
+            </Link>
+
+          </div>
         </div>
       </section>
 

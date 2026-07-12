@@ -34,7 +34,14 @@ export function generatePageMetadata({
 
   const defaultKeywords = [
     "mud.cc",
+    "premium 3-letter domain",
+    "premium three-letter domain",
+    "digital real estate",
     "premium domain name",
+    "digital land asset",
+    "brandable short domain",
+    "three-letter .cc domain",
+    "premium domain portfolio",
     "mineral mud skincare",
     "mud runs and obstacle racing",
     "text-based MUD retro games",
