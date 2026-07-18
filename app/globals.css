@@ -70,3 +70,104 @@
   transform-origin: 22px 24px;
 }
 
+/* Print-specific styles to clean up layouts and maximize research readability */
+@media print {
+  /* Hide non-content and interactive elements */
+  header,
+  footer,
+  #evercove-brand-logo-svg,
+  .no-print,
+  button,
+  a[href^="#"],
+  iframe,
+  [role="button"],
+  .top-banner,
+  #search-palette-modal {
+    display: none !important;
+  }
+
+  /* Optimize page size and base styles for physical printing */
+  @page {
+    size: portrait;
+    margin: 1.5cm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-family: system-ui, -apple-system, sans-serif !important;
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Ensure content sections expand to full paper width */
+  main,
+  .max-w-7xl,
+  .max-w-4xl,
+  .max-w-3xl,
+  .mx-auto {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  /* Keep headings close to their respective body texts */
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+    font-weight: 700 !important;
+    page-break-after: avoid;
+    break-after: avoid;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  h1 {
+    font-size: 24pt !important;
+  }
+
+  h2 {
+    font-size: 18pt !important;
+    border-bottom: 1pt solid #dddddd !important;
+    padding-bottom: 4pt !important;
+  }
+
+  h3 {
+    font-size: 14pt !important;
+  }
+
+  p, li, blockquote, pre {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    color: #111111 !important;
+  }
+
+  /* Unfurl grids into standard vertical block flows for continuous printing */
+  .grid {
+    display: block !important;
+  }
+
+  .grid > * {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 1.5rem !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1px solid #e5e7eb !important;
+    padding: 1.5rem !important;
+    border-radius: 8px !important;
+  }
+
+  /* Print absolute links clearly next to anchor text for reference */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 85%;
+    color: #444444;
+    font-weight: normal;
+  }
+}
+
+

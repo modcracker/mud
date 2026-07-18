@@ -5,7 +5,8 @@ import { ArrowRight, Tag, ShieldCheck, Zap, Sparkles, TrendingUp, Search, HelpCi
 import { GODADDY_URL } from "@/lib/config";
 import { CATEGORIES } from "@/lib/data";
 import { generatePageMetadata, getBaseUrl } from "@/lib/metadata";
-import { CategoryIllustration } from "@/components/category-illustration";
+import InteractiveSitemap from "@/components/interactive-sitemap";
+import ResearchExplorer from "@/components/research-explorer";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "International Mud Center & Digital Archive — mud.cc",
@@ -166,118 +167,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Research Pillars */}
-      <section className="bg-white py-16 px-6 border-b border-stone-200">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 rounded-2xl bg-stone-50 border border-stone-100 space-y-3">
-              <span className="inline-flex p-3 bg-amber-100 rounded-xl text-amber-700">
-                <Zap size={20} />
-              </span>
-              <h3 className="text-lg font-bold font-display text-stone-900">Geological Significance</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">
-                Silt and clay represent the primal foundation of terrestrial soil life, river deltas, and land fertility across every continent.
-              </p>
-            </div>
-            <div className="p-6 rounded-2xl bg-stone-50 border border-stone-100 space-y-3">
-              <span className="inline-flex p-3 bg-emerald-100 rounded-xl text-emerald-700">
-                <TrendingUp size={20} />
-              </span>
-              <h3 className="text-lg font-bold font-display text-stone-900">Cross-Disciplinary Archive</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">
-                Documenting earthen subjects spanning mineral-rich therapeutic skincare, ancient rammed earth building techniques, and text-based virtual worlds.
-              </p>
-            </div>
-            <div className="p-6 rounded-2xl bg-stone-50 border border-stone-100 space-y-3">
-              <span className="inline-flex p-3 bg-indigo-100 rounded-xl text-indigo-700">
-                <ShieldCheck size={20} />
-              </span>
-              <h3 className="text-lg font-bold font-display text-stone-900">Active Ecosystem Preservation</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">
-                Translating digital scholarship into real-world action by allocating administrative resources to wetlands and soil preservation projects.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Industry Category Cards Section */}
-      <section id="categories" className="py-24 px-6 bg-stone-50">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div className="space-y-2">
-              <h2 className="text-3xl md:text-5xl font-bold font-display tracking-tight text-stone-900">
-                Ten Research Verticals
-              </h2>
-              <p className="text-stone-600 max-w-2xl text-base font-sans">
-                Explore the complete digital encyclopedia of earthen sciences, history, architecture, and technology.
-              </p>
-            </div>
-            <div className="text-xs font-mono text-stone-400 flex items-center gap-2 bg-stone-100 px-3 py-1.5 rounded-lg border border-stone-200">
-              <Search size={12} /> database status: 38 nodes verified
-            </div>
-          </div>
-
-          {/* Staggered asymmetric grid layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {CATEGORIES.map((category, index) => {
-              // Determine card dimensions and proportions for asymmetric layout
-              const isLargeCard = index % 4 === 0;
-              const isTallImage = index % 3 === 0;
-
-              return (
-                <Link
-                  key={category.slug}
-                  href={`/mud/${category.slug}`}
-                  className={`group relative bg-white border border-stone-200 rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-stone-300 flex flex-col justify-between ${
-                    isLargeCard ? "md:col-span-2" : "col-span-1"
-                  }`}
-                >
-                  <div className="p-6 md:p-8 space-y-6 flex-grow flex flex-col justify-between">
-                    <div>
-                      {/* Badge */}
-                      <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border mb-4 ${category.theme.badge}`}>
-                        {category.subtitle}
-                      </span>
-                      
-                      {/* Title */}
-                      <h3 className="text-2xl md:text-3xl font-bold font-display tracking-tight text-stone-900 mb-3 group-hover:text-amber-600 transition-colors">
-                        {category.title}
-                      </h3>
-                      
-                      {/* Teaser */}
-                      <p className="text-stone-600 text-sm leading-relaxed mb-6">
-                        {category.shortTeaser}
-                      </p>
-                    </div>
-
-                    {/* Category Illustration Block */}
-                    <div className={`relative w-full rounded-2xl overflow-hidden border border-stone-200/60 shadow-inner ${
-                      isTallImage ? "aspect-[4/3]" : "aspect-[16/10]"
-                    }`}>
-                      <CategoryIllustration slug={category.slug} theme={category.theme} isLargeCard={isLargeCard} />
-                    </div>
-                  </div>
-
-                      {/* Card Action footer bar */}
-                      <div className="px-6 md:px-8 py-5 bg-stone-50 border-t border-stone-100 flex items-center justify-between">
-                        <span className="text-xs font-mono text-stone-400">
-                          /mud/{category.slug}
-                        </span>
-                        <span
-                          className={`inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${category.theme.accent}`}
-                        >
-                          Explore Archive <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
-                        </span>
-                      </div>
-                </Link>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
+      {/* Research Explorer Section with Dynamic Tag Filtering */}
+      <ResearchExplorer />
 
       {/* Academic Semantic Registry Section (SEO Direct Internal Linking Hub) */}
       <section className="py-20 px-6 bg-white border-t border-stone-200">
@@ -419,6 +310,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Complete visual directory and interactive sitemap */}
+      <InteractiveSitemap />
 
       {/* Scientific & Educational FAQ Section */}
       <section id="faq" className="py-24 px-6 bg-white border-t border-stone-200">

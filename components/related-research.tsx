@@ -89,7 +89,7 @@ export default function RelatedResearch({
       // Add a slight deterministic random factor based on title length to break ties cleanly
       score += page.title.length * 0.1;
 
-      return { page, score };
+      return { page, score, sharedTags };
     });
 
     // Sort descending by score, then publishDate
@@ -106,7 +106,8 @@ export default function RelatedResearch({
           ...item.page,
           categoryTitle: cat?.title || "Research Node",
           categoryTheme: cat?.theme || { bg: "bg-stone-50", border: "border-stone-200", primary: "amber" },
-          score: item.score
+          score: item.score,
+          sharedTags: item.sharedTags
         };
       });
   }, [currentCategorySlug, currentSubpageSlug, currentDetailSlug]);
@@ -114,22 +115,22 @@ export default function RelatedResearch({
   if (relatedPages.length === 0) return null;
 
   return (
-    <section className="mt-16 pt-12 border-t border-stone-200/80">
+    <section className="mt-16 pt-12 border-t border-stone-200/80" id="intelligent-related-research">
       <div className="space-y-4 mb-8">
         <div className="flex items-center gap-2">
-          <span className="p-1.5 bg-amber-500/10 text-amber-700 rounded-lg">
-            <Compass size={16} className="animate-spin-slow text-amber-600" />
+          <span className="p-1.5 bg-amber-500/10 text-amber-700 rounded-lg animate-pulse">
+            <Compass size={16} className="text-amber-600" />
           </span>
           <span className="text-[10px] font-mono text-amber-600 font-bold uppercase tracking-widest block">
-            Interdisciplinary Exploration
+            Intelligent Semantic Recommendations
           </span>
         </div>
         <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
           <h3 className="text-xl md:text-2xl font-bold font-display text-stone-900 tracking-tight">
-            Explore Related Research Verticals
+            Intelligent Related Research
           </h3>
           <p className="text-xs text-stone-500 max-w-md font-sans">
-            Our neural mapping engine automatically surface connections to other areas of the mud.cc archive.
+            Algorithmically generated recommendations highlighting interdisciplinary links and shared research tags.
           </p>
         </div>
       </div>
@@ -152,13 +153,27 @@ export default function RelatedResearch({
               </div>
               
               <div className="space-y-1">
-                <h4 className="text-sm font-bold font-display text-stone-900 group-hover:text-amber-600 transition-colors leading-snug">
+                <h4 className="text-sm font-bold font-display text-stone-900 group-hover:text-amber-600 transition-colors leading-snug line-clamp-2">
                   {page.title}
                 </h4>
-                <p className="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+                <p className="text-xs text-stone-500 line-clamp-2 leading-relaxed font-sans">
                   {page.description}
                 </p>
               </div>
+
+              {/* Shared Semantic Tags list */}
+              {page.sharedTags && page.sharedTags.length > 0 && (
+                <div className="pt-2 flex flex-wrap gap-1">
+                  {page.sharedTags.slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[8px] font-mono font-bold bg-amber-50/80 text-amber-800 px-1.5 py-0.5 rounded border border-amber-100/40 uppercase tracking-tight"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="pt-4 mt-4 border-t border-stone-100 flex items-center justify-between text-[10px] font-mono text-stone-400 group-hover:text-amber-600 transition-colors">

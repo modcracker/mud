@@ -11,6 +11,10 @@ import { generatePageMetadata, getBaseUrl } from "@/lib/metadata";
 import { getPremiumMudImage } from "@/lib/images";
 import SidebarInterlinks from "@/components/sidebar-interlinks";
 import { CategoryIllustration } from "@/components/category-illustration";
+import ContributorBiography from "@/components/contributor-biography";
+import AnimatedBreadcrumbs from "@/components/animated-breadcrumbs";
+import TagCloud from "@/components/tag-cloud";
+import AutomaticAnchorLinks from "@/components/automatic-anchor-links";
 
 interface SubpageProps {
   params: Promise<{ category: string; subpage: string }>;
@@ -169,26 +173,17 @@ export default async function SubpageEntry({ params }: SubpageProps) {
       />
 
       {/* Navigation and Breadcrumbs */}
-      <header className="max-w-4xl mx-auto px-6 py-8 flex flex-col gap-4 border-b border-stone-200/60 mb-12">
-        <div className="flex items-center gap-3 text-xs font-mono text-stone-400">
-          <Link href="/" className="hover:text-stone-800 transition-colors">
-            home
-          </Link>
-          <span>/</span>
-          <Link href={`/mud/${category.slug}`} className="hover:text-stone-800 transition-colors">
-            {category.slug}
-          </Link>
-          <span>/</span>
-          <span className="text-stone-600 font-semibold">{subpage.slug}</span>
-        </div>
-        
-        <Link
-          href={`/mud/${category.slug}`}
-          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-500 hover:text-stone-900 transition-colors"
-        >
-          <ArrowLeft size={12} /> Back to {category.title} Hub
-        </Link>
-      </header>
+      <AnimatedBreadcrumbs
+        items={[
+          { label: "home", href: "/" },
+          { label: category.slug, href: `/mud/${category.slug}` },
+          { label: subpage.slug }
+        ]}
+        backLink={{
+          label: `Back to ${category.title} Hub`,
+          href: `/mud/${category.slug}`
+        }}
+      />
 
       {/* Layout Engine Dispatch */}
       {subpage.layout === "magazine" && (
@@ -270,7 +265,7 @@ export default async function SubpageEntry({ params }: SubpageProps) {
                 </p>
               </div>
               <div className="relative w-full aspect-[21/9] rounded-xl overflow-hidden border border-stone-100 shadow-inner bg-stone-50/10 p-1 mt-2">
-                <CategoryIllustration slug={category.slug} theme={theme} />
+                <CategoryIllustration slug={category.slug} seed={sub.slug} theme={theme} />
               </div>
               <span className="text-[11px] font-bold text-stone-500 group-hover:text-amber-600 inline-flex items-center gap-1">
                 Enter Publication <span className="transform group-hover:translate-x-1 transition-transform">→</span>
@@ -300,7 +295,7 @@ export default async function SubpageEntry({ params }: SubpageProps) {
                   </p>
                 </div>
                 <div className="relative w-full aspect-[21/9] rounded-xl overflow-hidden border border-stone-100 shadow-inner bg-stone-50/10 p-1 mt-2">
-                  <CategoryIllustration slug={item.categorySlug} theme={relTheme} />
+                  <CategoryIllustration slug={item.categorySlug} seed={item.subpage.slug} theme={relTheme} />
                 </div>
                 <span className="text-[11px] font-bold text-stone-500 group-hover:text-amber-600 inline-flex items-center gap-1">
                   Cross-Reference Treatises <span className="transform group-hover:translate-x-1 transition-transform">→</span>
@@ -309,6 +304,16 @@ export default async function SubpageEntry({ params }: SubpageProps) {
             );
           })}
         </div>
+      </section>
+
+      {/* Contributor Biography Section */}
+      <section className="max-w-4xl mx-auto px-6">
+        <ContributorBiography categorySlug={category.slug} />
+      </section>
+
+      {/* Dynamic Tag Cloud Section */}
+      <section className="max-w-4xl mx-auto px-6 mt-12">
+        <TagCloud title="Subpage Semantic Tag Cloud" />
       </section>
 
       {/* Common Footer Stewardship Alliance Box */}
@@ -404,7 +409,7 @@ function MagazineLayout({
                   </h2>
                 )}
                 <p className="first-letter:text-5xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:text-amber-600 first-letter:font-display">
-                  {firstSection.text}
+                  <AutomaticAnchorLinks text={firstSection.text} />
                 </p>
               </div>
             )}
@@ -421,7 +426,7 @@ function MagazineLayout({
                     {sec.heading}
                   </h3>
                 )}
-                <p>{sec.text}</p>
+                <p><AutomaticAnchorLinks text={sec.text} /></p>
               </div>
             ))}
 
@@ -429,7 +434,7 @@ function MagazineLayout({
             <div className="my-12 p-6 md:p-8 rounded-3xl bg-amber-50/40 border border-amber-200/50 space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                 <div className="md:col-span-4 aspect-[4/3] w-full rounded-2xl overflow-hidden border border-stone-200/60 shadow-inner bg-white p-2">
-                  <CategoryIllustration slug={category.slug} theme={theme} />
+                  <CategoryIllustration slug={category.slug} seed={`${subpage.slug}-schema`} theme={theme} />
                 </div>
                 <div className="md:col-span-8 space-y-2">
                   <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-amber-700">SCHEMA REFERENCE</span>
@@ -475,7 +480,7 @@ function MagazineLayout({
                 SYSTEM SCHEMA
               </span>
               <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-stone-100 shadow-inner">
-                <CategoryIllustration slug={category.slug} theme={theme} />
+                <CategoryIllustration slug={category.slug} seed={`${subpage.slug}-magazine-sidebar-schema`} theme={theme} />
               </div>
               <p className="text-[11px] text-stone-500 leading-relaxed">
                 Peer-reviewed conceptual schema representing the core dynamics of {category.title}.
@@ -534,8 +539,8 @@ function TimelineLayout({
 
           {/* Intro Text Section */}
           {subpage.sections && subpage.sections[0] && (
-            <div className="bg-white border border-stone-200 p-8 rounded-3xl shadow-sm text-stone-600 leading-relaxed">
-              <p className="text-base md:text-lg">{subpage.sections[0].text}</p>
+            <div className="bg-white border border-stone-200 p-8 rounded-3xl shadow-sm text-stone-600 leading-relaxed font-sans">
+              <p className="text-base md:text-lg"><AutomaticAnchorLinks text={subpage.sections[0].text} /></p>
             </div>
           )}
 
@@ -543,7 +548,7 @@ function TimelineLayout({
           <div className="my-10 p-6 md:p-8 rounded-3xl bg-amber-50/40 border border-amber-200/50 space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
               <div className="md:col-span-4 aspect-[4/3] w-full rounded-2xl overflow-hidden border border-stone-200/60 shadow-inner bg-white p-2">
-                <CategoryIllustration slug={category.slug} theme={theme} />
+                <CategoryIllustration slug={category.slug} seed={`${subpage.slug}-timeline-schema`} theme={theme} />
               </div>
               <div className="md:col-span-8 space-y-2">
                 <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-amber-700">CHRONOLOGICAL MODEL</span>
@@ -572,8 +577,8 @@ function TimelineLayout({
                   <h3 className="text-lg font-bold font-display text-stone-900">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-stone-600 leading-relaxed">
-                    {item.text}
+                  <p className="text-sm text-stone-600 leading-relaxed font-sans">
+                    <AutomaticAnchorLinks text={item.text} />
                   </p>
                 </div>
               </div>
@@ -613,7 +618,7 @@ function TimelineLayout({
                 SYSTEM SCHEMA
               </span>
               <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-stone-100 shadow-inner">
-                <CategoryIllustration slug={category.slug} theme={theme} />
+                <CategoryIllustration slug={category.slug} seed={`${subpage.slug}-timeline-sidebar-schema`} theme={theme} />
               </div>
               <p className="text-[11px] text-stone-500 leading-relaxed">
                 Peer-reviewed conceptual schema representing the core dynamics of {category.title}.
@@ -662,8 +667,8 @@ function MasonryLayout({
 
           {/* Introductory Lead */}
           {subpage.sections && subpage.sections[0] && (
-            <div className="bg-white border border-stone-200 p-6 md:p-8 rounded-3xl shadow-sm text-stone-600 text-sm leading-relaxed">
-              <p>{subpage.sections[0].text}</p>
+            <div className="bg-white border border-stone-200 p-6 md:p-8 rounded-3xl shadow-sm text-stone-600 text-sm leading-relaxed font-sans">
+              <p><AutomaticAnchorLinks text={subpage.sections[0].text} /></p>
             </div>
           )}
 
@@ -680,7 +685,7 @@ function MasonryLayout({
                 </h3>
               </div>
               <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-stone-100 shadow-inner p-1">
-                <CategoryIllustration slug={category.slug} theme={theme} />
+                <CategoryIllustration slug={category.slug} seed={`${subpage.slug}-masonry-schema`} theme={theme} />
               </div>
               <p className="text-stone-600 text-xs leading-relaxed font-sans">
                 A formal conceptual diagram representing the spatial, physical, or technical parameters analyzed within this publication.
@@ -706,8 +711,8 @@ function MasonryLayout({
                     }`}>
                       {card.title}
                     </h3>
-                    <p className="text-stone-600 text-xs leading-relaxed">
-                      {card.text}
+                    <p className="text-stone-600 text-xs leading-relaxed font-sans">
+                      <AutomaticAnchorLinks text={card.text} />
                     </p>
                   </div>
 
@@ -764,7 +769,7 @@ function MasonryLayout({
                 SYSTEM SCHEMA
               </span>
               <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-stone-100 shadow-inner">
-                <CategoryIllustration slug={category.slug} theme={theme} />
+                <CategoryIllustration slug={category.slug} seed={`${subpage.slug}-masonry-sidebar-schema`} theme={theme} />
               </div>
               <p className="text-[11px] text-stone-500 leading-relaxed">
                 Peer-reviewed conceptual schema representing the core dynamics of {category.title}.

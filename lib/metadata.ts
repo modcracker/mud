@@ -50,7 +50,18 @@ export function generatePageMetadata({
     "mudlarking river thames history",
     "automotive mud tires",
     "therapeutic clay wellness",
-    "mudslinging idiom etymology"
+    "mudslinging idiom etymology",
+    // 10 high-value long-tail SEO keywords for International Mud Center
+    "educational clay mineralogy and soil science archive",
+    "rammed earth sustainable building techniques guide",
+    "therapeutic mud minerals for natural skincare",
+    "geotechnical engineering of spring mud season",
+    "ancient cob architecture and clay constructions",
+    "mineral rich silt and alluvial soil geomorphology",
+    "history of text based multi user dungeon gaming",
+    "river thames mudlarking historical archaeology artifacts",
+    "traditional southern Mississippi mud pie recipes",
+    "off road automotive mud tire traction performance"
   ];
 
   // Dynamically generate strategic deep-linking keywords from path structure

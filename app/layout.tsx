@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import TopBanner from "@/components/top-banner";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import ScrollToTop from "@/components/scroll-to-top";
 import { getBaseUrl } from "@/lib/metadata";
 import { GODADDY_URL } from "@/lib/config";
 import "./globals.css";
@@ -182,6 +183,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );

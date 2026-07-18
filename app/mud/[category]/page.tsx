@@ -457,7 +457,7 @@ export default async function CategoryHubPage({ params }: CategoryPageProps) {
                     ? "bg-zinc-950/80 border-emerald-950/40"
                     : "bg-stone-50 border-stone-200/40"
                 }`}>
-                  <CategoryIllustration slug={category.slug} theme={category.theme} />
+                  <CategoryIllustration slug={category.slug} seed={`${category.slug}-deep-dive`} theme={category.theme} />
                 </div>
               </div>
 
@@ -621,7 +621,7 @@ export default async function CategoryHubPage({ params }: CategoryPageProps) {
                   {sub.description}
                 </p>
                 <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden border border-stone-100 shadow-inner bg-stone-50/10 p-1">
-                  <CategoryIllustration slug={category.slug} theme={theme} />
+                  <CategoryIllustration slug={category.slug} seed={`${category.slug}-${sub.slug}`} theme={theme} />
                 </div>
               </div>
 
@@ -664,7 +664,7 @@ export default async function CategoryHubPage({ params }: CategoryPageProps) {
                   ? "bg-zinc-950/80 border-emerald-950/40"
                   : "bg-white border-stone-200/60"
               }`}>
-                <CategoryIllustration slug={category.slug} theme={theme} />
+                <CategoryIllustration slug={category.slug} seed={`${category.slug}-faq`} theme={theme} />
               </div>
             </div>
 

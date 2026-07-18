@@ -12,6 +12,10 @@ import SidebarInterlinks from "@/components/sidebar-interlinks";
 import { CategoryIllustration } from "@/components/category-illustration";
 import TableOfContents from "@/components/table-of-contents";
 import RelatedResearch from "@/components/related-research";
+import ContributorBiography from "@/components/contributor-biography";
+import AnimatedBreadcrumbs from "@/components/animated-breadcrumbs";
+import TagCloud from "@/components/tag-cloud";
+import AutomaticAnchorLinks from "@/components/automatic-anchor-links";
 
 interface DetailPageProps {
   params: Promise<{ category: string; subpage: string; detail: string }>;
@@ -179,24 +183,18 @@ export default async function DetailEntryPage({ params }: DetailPageProps) {
       />
 
       {/* Nav header */}
-      <header className="max-w-4xl mx-auto px-6 py-8 flex flex-col gap-4 border-b border-stone-200/60 mb-12">
-        <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-stone-400">
-          <Link href="/" className="hover:text-stone-800 transition-colors">home</Link>
-          <span>/</span>
-          <Link href={`/mud/${category.slug}`} className="hover:text-stone-800 transition-colors">{category.slug}</Link>
-          <span>/</span>
-          <Link href={`/mud/${category.slug}/${subpage.slug}`} className="hover:text-stone-800 transition-colors">{subpage.slug}</Link>
-          <span>/</span>
-          <span className="text-stone-600 font-semibold">{page.slug}</span>
-        </div>
-        
-        <Link
-          href={`/mud/${category.slug}/${subpage.slug}`}
-          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-500 hover:text-stone-900 transition-colors"
-        >
-          <ArrowLeft size={12} /> Back to {subpage.title}
-        </Link>
-      </header>
+      <AnimatedBreadcrumbs
+        items={[
+          { label: "home", href: "/" },
+          { label: category.slug, href: `/mud/${category.slug}` },
+          { label: subpage.slug, href: `/mud/${category.slug}/${subpage.slug}` },
+          { label: page.slug }
+        ]}
+        backLink={{
+          label: `Back to ${subpage.title}`,
+          href: `/mud/${category.slug}/${subpage.slug}`
+        }}
+      />
 
       {/* Main Core Content Container */}
       <main className="max-w-4xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -230,7 +228,7 @@ export default async function DetailEntryPage({ params }: DetailPageProps) {
           <div className="my-10 p-6 md:p-8 rounded-3xl bg-amber-50/40 border border-amber-200/50 space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
               <div className="md:col-span-4 aspect-[4/3] w-full rounded-2xl overflow-hidden border border-stone-200/60 shadow-inner bg-white p-2">
-                <CategoryIllustration slug={category.slug} theme={theme} />
+                <CategoryIllustration slug={category.slug} seed={`${page.slug}-matrix`} theme={theme} />
               </div>
               <div className="md:col-span-8 space-y-2">
                 <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-amber-700">DIAGNOSTIC MATRIX</span>
@@ -253,7 +251,7 @@ export default async function DetailEntryPage({ params }: DetailPageProps) {
                   {section.heading}
                 </h2>
                 <p className="text-stone-700 text-sm md:text-base leading-relaxed font-sans">
-                  {section.text}
+                  <AutomaticAnchorLinks text={section.text} />
                 </p>
 
                 {section.bulletPoints && section.bulletPoints.length > 0 && (
@@ -261,7 +259,7 @@ export default async function DetailEntryPage({ params }: DetailPageProps) {
                     {section.bulletPoints.map((bullet, bIdx) => (
                       <li key={bIdx} className="flex items-start gap-2.5 text-xs md:text-sm text-stone-600">
                         <span className="inline-flex mt-1 shrink-0 w-1.5 h-1.5 rounded-full bg-amber-500" />
-                        <span>{bullet}</span>
+                        <span><AutomaticAnchorLinks text={bullet} /></span>
                       </li>
                     ))}
                   </ul>
@@ -309,7 +307,7 @@ export default async function DetailEntryPage({ params }: DetailPageProps) {
               <h3 className="text-base font-bold font-display text-stone-900">Reference Model</h3>
             </div>
             <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-stone-100 shadow-inner">
-              <CategoryIllustration slug={category.slug} theme={theme} />
+              <CategoryIllustration slug={category.slug} seed={`${page.slug}-reference-model`} theme={theme} />
             </div>
             <p className="text-xs text-stone-600 leading-relaxed">
               Technical outline depicting the fundamental physical or theoretical matrix under investigation for <strong>{category.title}</strong>.
@@ -360,6 +358,16 @@ export default async function DetailEntryPage({ params }: DetailPageProps) {
           currentSubpageSlug={subpage.slug}
           currentDetailSlug={page.slug}
         />
+      </div>
+
+      {/* Semantic Tag Cloud Index */}
+      <div className="max-w-4xl mx-auto px-6 mt-12">
+        <TagCloud title="Deep-Dive Article Semantic Tags" />
+      </div>
+
+      {/* Contributor Biography Section */}
+      <div className="max-w-4xl mx-auto px-6">
+        <ContributorBiography categorySlug={category.slug} />
       </div>
 
       {/* Semantic Integration Showcase Banner */}

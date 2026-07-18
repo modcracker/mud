@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { Search, Globe, FileText, ArrowRight, X, Command, Sparkles, Compass } from "lucide-react";
 import { CATEGORIES } from "@/lib/data";
+import { DETAIL_PAGES } from "@/lib/detail-data";
+import { getTaxonomyListings } from "@/lib/taxonomy-data";
 import { GODADDY_URL } from "@/lib/config";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -12,7 +14,7 @@ interface SearchItem {
   title: string;
   subtitle: string;
   description: string;
-  type: "Category" | "Subpage" | "System";
+  type: "Category" | "Subpage" | "System" | "Deep-Dive" | "Scientific Node";
   url: string;
   categoryName: string;
 }
@@ -76,6 +78,32 @@ export default function Header() {
         url: `/mud/${cat.slug}/${sub.slug}`,
         categoryName: cat.title,
       });
+    });
+  });
+
+  // Add all of its deep-dive details
+  DETAIL_PAGES.forEach((page) => {
+    const categoryName = CATEGORIES.find((c) => c.slug === page.parentCategorySlug)?.title || "Research";
+    searchItems.push({
+      title: page.title,
+      subtitle: page.subtitle,
+      description: page.description,
+      type: "Deep-Dive",
+      url: `/mud/${page.parentCategorySlug}/${page.parentSubpageSlug}/${page.slug}`,
+      categoryName,
+    });
+  });
+
+  // Add taxonomy listings
+  getTaxonomyListings().forEach((entry) => {
+    const categoryName = CATEGORIES.find((c) => c.slug === entry.category)?.title || "Taxonomy";
+    searchItems.push({
+      title: entry.title,
+      subtitle: "Scientific Node Reference",
+      description: entry.description,
+      type: "Scientific Node",
+      url: `/taxonomy/${entry.slug}`,
+      categoryName,
     });
   });
 
@@ -448,6 +476,10 @@ export default function Header() {
                               <Globe size={15} />
                             ) : item.type === "System" ? (
                               <Compass size={15} />
+                            ) : item.type === "Deep-Dive" ? (
+                              <Sparkles size={15} />
+                            ) : item.type === "Scientific Node" ? (
+                              <Compass size={15} />
                             ) : (
                               <FileText size={15} />
                             )}
@@ -464,7 +496,7 @@ export default function Header() {
                               </span>
                             </div>
 
-                            {item.type === "Subpage" && (
+                            {(item.type === "Subpage" || item.type === "Deep-Dive" || item.type === "Scientific Node") && (
                               <span className="block text-[10px] font-bold text-amber-600 uppercase tracking-tight mt-0.5">
                                 in {item.categoryName}
                               </span>
